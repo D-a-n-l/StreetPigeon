@@ -47,6 +47,6 @@ TagManager:
   - name: Player
     uniqueID: 866910205
     locked: 0
-  - name: UIJoystick
+  - name: UI
     uniqueID: 1979002537
     locked: 0
