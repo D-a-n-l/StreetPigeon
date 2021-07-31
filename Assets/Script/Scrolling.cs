@@ -5,18 +5,21 @@ using UnityEngine;
 public class Scrolling : MonoBehaviour
 {
 
-    [SerializeField] private float speedScroll = 8f;
-    public float backgroundSize;
+    [SerializeField] private float parallaxSpeed = 8f;
+    [SerializeField] private float backgroundSize;
 
     private Transform cameraTransform;
     private Transform[] layers;
-    private float viewZone = 14.4f;
+    private float viewZone = 10f;
     private int leftIndex;
     private int rightIndex;
+    private float lastCameraX;
 
     private void Start()
     {
         cameraTransform = Camera.main.transform;
+        lastCameraX = cameraTransform.position.x;
+
         layers = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -29,7 +32,11 @@ public class Scrolling : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector2.left * speedScroll * Time.deltaTime);
+        transform.Translate(Vector2.left * parallaxSpeed * Time.deltaTime);
+
+/*        float deltaX = cameraTransform.position.x - lastCameraX;
+        transform.position += Vector3.right * (deltaX * parallaxSpeed);
+        lastCameraX = cameraTransform.position.x;*/
 
         if (cameraTransform.position.x < (layers[leftIndex].transform.position.x + viewZone))
         {
