@@ -114,11 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  sprites:
-  - {fileID: 6853316077166303748, guid: 165b001e3e60c8349a2b64247e85e970, type: 3}
-  - {fileID: 4134985361545656292, guid: 165b001e3e60c8349a2b64247e85e970, type: 3}
-  - {fileID: -1566730818833404899, guid: 165b001e3e60c8349a2b64247e85e970, type: 3}
   viewZone: 18.3
+  randScaleMin: 0.3
+  randScaleMax: 0.4
 --- !u!114 &1384442413784048145
 MonoBehaviour:
   m_ObjectHideFlags: 0

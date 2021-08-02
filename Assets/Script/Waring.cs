@@ -3,23 +3,20 @@ using UnityEngine;
 public class Waring : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    [SerializeField] private Sprite[] sprites;
     [SerializeField] private float viewZone = 14.8f;
+    [SerializeField] private float randScaleMin;
+    [SerializeField] private float randScaleMax;
 
     private float cameraPosition;
     private Damage damage; 
-    private SpriteRenderer spriteRenderer;
     
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         damage = GetComponent<Damage>();
         cameraPosition = Camera.main.transform.position.x;
 
-        float randLocalScale = Random.Range(0.3f, 0.45f);
+        float randLocalScale = Random.Range(randScaleMin, randScaleMax);
         transform.localScale = new Vector2(randLocalScale, randLocalScale);
-        int randSprite = Random.Range(0, sprites.Length);
-        spriteRenderer.sprite = sprites[randSprite];
     }
 
     private void Update()
