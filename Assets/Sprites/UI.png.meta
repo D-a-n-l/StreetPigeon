@@ -86,6 +86,9 @@ TextureImporter:
   - first:
       213: -7867266084347359734
     second: UI_27
+  - first:
+      213: 3787343402263556702
+    second: UI_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -454,10 +457,10 @@ TextureImporter:
       name: UI_15
       rect:
         serializedVersion: 2
-        x: 3
-        y: 387
-        width: 125
-        height: 118
+        x: 1103
+        y: 543
+        width: 124
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,9 +478,9 @@ TextureImporter:
       name: UI_16
       rect:
         serializedVersion: 2
-        x: 140
+        x: 3
         y: 387
-        width: 124
+        width: 125
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -496,9 +499,9 @@ TextureImporter:
       name: UI_17
       rect:
         serializedVersion: 2
-        x: 274
+        x: 140
         y: 387
-        width: 114
+        width: 124
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -517,10 +520,10 @@ TextureImporter:
       name: UI_18
       rect:
         serializedVersion: 2
-        x: 626
-        y: 167
-        width: 120
-        height: 242
+        x: 274
+        y: 387
+        width: 114
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,10 +541,10 @@ TextureImporter:
       name: UI_19
       rect:
         serializedVersion: 2
-        x: 1
-        y: 258
-        width: 124
-        height: 118
+        x: 626
+        y: 167
+        width: 120
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,9 +562,9 @@ TextureImporter:
       name: UI_20
       rect:
         serializedVersion: 2
-        x: 137
+        x: 1
         y: 258
-        width: 125
+        width: 124
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -580,9 +583,9 @@ TextureImporter:
       name: UI_21
       rect:
         serializedVersion: 2
-        x: 272
+        x: 137
         y: 258
-        width: 114
+        width: 125
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -601,9 +604,9 @@ TextureImporter:
       name: UI_22
       rect:
         serializedVersion: 2
-        x: 1
-        y: 129
-        width: 124
+        x: 272
+        y: 258
+        width: 114
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -622,9 +625,9 @@ TextureImporter:
       name: UI_23
       rect:
         serializedVersion: 2
-        x: 137
+        x: 1
         y: 129
-        width: 125
+        width: 124
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -643,9 +646,9 @@ TextureImporter:
       name: UI_24
       rect:
         serializedVersion: 2
-        x: 272
+        x: 137
         y: 129
-        width: 114
+        width: 125
         height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -727,10 +730,10 @@ TextureImporter:
       name: UI_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 125
-        height: 119
+        x: 272
+        y: 129
+        width: 114
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,9 +751,9 @@ TextureImporter:
       name: UI_26
       rect:
         serializedVersion: 2
-        x: 137
+        x: 0
         y: 0
-        width: 124
+        width: 125
         height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -769,6 +772,27 @@ TextureImporter:
       name: UI_27
       rect:
         serializedVersion: 2
+        x: 137
+        y: 0
+        width: 124
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e4ff8cd2bd1d290800000000000000
+      internalID: -7867266084347359734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_28
+      rect:
+        serializedVersion: 2
         x: 271
         y: 0
         width: 114
@@ -780,8 +804,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0e4ff8cd2bd1d290800000000000000
-      internalID: -7867266084347359734
+      spriteID: e52b65612c85f8430800000000000000
+      internalID: 3787343402263556702
       vertices: []
       indices: 
       edges: []
