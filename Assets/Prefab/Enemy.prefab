@@ -113,9 +113,9 @@ GameObject:
   - component: {fileID: 2286858351210212207}
   - component: {fileID: 1600633829365064696}
   - component: {fileID: 5038403494952862921}
-  - component: {fileID: 968955961}
   - component: {fileID: 4650498347401694329}
   - component: {fileID: 2432808644180543891}
+  - component: {fileID: 1147384427195937530}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -175,19 +175,6 @@ CircleCollider2D:
   m_Offset: {x: -0.02, y: 0}
   serializedVersion: 2
   m_Radius: 1.54
---- !u!114 &968955961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8446229773761414957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e68cdd408f554241a519e53f4138816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!114 &4650498347401694329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +201,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0a682665eb1041bfd61691e10807e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyItem: 0
+  isDestroyObject: 0
   isDamagePigeon: 1
   isAddEnergy: 0
+  isDestroyPigeon: 0
+--- !u!114 &1147384427195937530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446229773761414957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 9
+  randScaleMin: 0
+  randScaleMax: 0
+  isChangeScale: 0

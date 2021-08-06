@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using System.Collections;
 
 public class PlayerFeature : MonoBehaviour
 {
     [Header("Character properties")]
-    [SerializeField] private float health = 100;
+    [SerializeField] private float health = 100f;
     [SerializeField] private float energy = 100f;
     [Range(0.0001f, 0.001f)]
     [SerializeField] private float decreaseEnergy = 0.05f;
@@ -114,5 +112,10 @@ public class PlayerFeature : MonoBehaviour
     private void OffBlinkDamage()
     {
         spriteRend.material = pigeonDefault;
+    }
+
+    public void ChangeHealthPigeon(float decreaseHealth)
+    {
+        health -= decreaseHealth;
     }
 }

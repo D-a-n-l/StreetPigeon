@@ -21,7 +21,8 @@ public class Spawner : MonoBehaviour
         {
             int randItem = Random.Range(0, itemPrefab.Length);
             yield return new WaitForSeconds(Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn));
-            Instantiate(itemPrefab[randItem], new Vector2(transform.position.x, Random.Range(minPosSpawn, maxPosSpawn)), Quaternion.identity);
+            Instantiate(itemPrefab[randItem], new Vector2(transform.position.x, 
+                Random.Range(minPosSpawn, maxPosSpawn)), Quaternion.identity);
         }
     }
 }

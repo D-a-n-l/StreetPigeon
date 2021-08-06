@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8953626958189267493}
   - component: {fileID: 8953626958189267498}
   - component: {fileID: 8953626958189267495}
-  - component: {fileID: 5793516610407746141}
-  - component: {fileID: 1384442413784048145}
   - component: {fileID: -2052213297053523874}
   - component: {fileID: 3641171918003700582}
+  - component: {fileID: 1384442413784048145}
+  - component: {fileID: 5018077200176271639}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8953626958189267499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.44, y: -3.53, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.30083382, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,35 +103,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.171501, y: 0.05462896}
   m_Size: {x: 3.8076432, y: 25.813805}
   m_Direction: 0
---- !u!114 &5793516610407746141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8953626958189267499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbed706cdb97d2d4ba69a50ae91d2ff5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  randScaleMin: 0.3
-  randScaleMax: 0.4
---- !u!114 &1384442413784048145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8953626958189267499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f857388c06437448b86e4d30af88571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 33
-  addEnergy: 10
 --- !u!50 &-2052213297053523874
 Rigidbody2D:
   serializedVersion: 4
@@ -165,6 +136,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0a682665eb1041bfd61691e10807e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyItem: 0
+  isDestroyObject: 0
   isDamagePigeon: 1
   isAddEnergy: 0
+  isDestroyPigeon: 0
+--- !u!114 &1384442413784048145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953626958189267499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f857388c06437448b86e4d30af88571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 33
+  addEnergy: 10
+--- !u!114 &5018077200176271639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953626958189267499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 5
+  randScaleMin: 0.3
+  randScaleMax: 0.35
+  isChangeScale: 0

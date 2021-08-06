@@ -2,9 +2,9 @@
 
 public class CameraSize : MonoBehaviour
 {
-    private const float SizeX = 2960.0f;//1920.0f;
-    private const float SizeY = 1440.0f;//1080.0f;
-    private const float HalfSize = 200.0f; // Половина высоты в px
+    private const float SizeX = 2960.0f;    //1920.0f;
+    private const float SizeY = 1440.0f;    //1080.0f;
+    private const float HalfSize = 200.0f;  // Половина высоты в px
 
     private float targetSizeX = 0f;
     private float targetSizeY = 0f;

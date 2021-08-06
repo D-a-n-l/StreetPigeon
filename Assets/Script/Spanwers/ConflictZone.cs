@@ -1,23 +1,25 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ConflictZone : MonoBehaviour
 {
-    [SerializeField] private bool isDestroyItem = false;
+    private const float INSTANTLY_DEATH = 0f;
+
+    [SerializeField] private bool isDestroyObject = false;
     [SerializeField] private bool isDamagePigeon = false;
     [SerializeField] private bool isAddEnergy = false;
     [SerializeField] private bool isDestroyPigeon = false;
 
 
-    private Damage damage;
+    private InteractionPlayer damage;
     
     private void Start()
     {
-        damage = GetComponent<Damage>();
+        damage = GetComponent<InteractionPlayer>();
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.TryGetComponent(out PlayerFeature player))
+    
+    private void OnTriggerEnter2D(Collider2D other)                     // Этот скрипт скорее всего сильно влияет на производительность
+    {                                                                   // он обрабатывает все возможные столкновения с объеками
+        if (other.gameObject.TryGetComponent(out PlayerFeature player)) // В будущих патчах обязательно исправить 
         {
             if (isDamagePigeon)
             {
@@ -33,11 +35,12 @@ public class ConflictZone : MonoBehaviour
             if (isDestroyPigeon)
             {
                 FindObjectOfType<GameSession>().PanelIsActive();
+                player.ChangeHealthPigeon(INSTANTLY_DEATH);
                 Destroy(other.gameObject);
             }
         }
 
-        if (isDestroyItem)
+        if (isDestroyObject)
         {
             Destroy(other.gameObject);
         }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8011274162962137872}
   - component: {fileID: 5523770099040591942}
   - component: {fileID: 8425967596269967016}
-  - component: {fileID: 5275399885207439919}
   - component: {fileID: 6766956566820054244}
   - component: {fileID: 693850534579787481}
+  - component: {fileID: 2150958301859689389}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011274162962137875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.11, y: -2.04, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.63079}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,21 +124,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.056035303, y: 7.427904}
   m_Size: {x: 2.57154, y: 5.5462236}
   m_Direction: 0
---- !u!114 &5275399885207439919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8011274162962137875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbed706cdb97d2d4ba69a50ae91d2ff5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  randScaleMin: 0.6
-  randScaleMax: 0.6
 --- !u!114 &6766956566820054244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +153,20 @@ MonoBehaviour:
   isDestroyItem: 0
   isDamagePigeon: 1
   isAddEnergy: 0
+  isDestroyPigeon: 0
+--- !u!114 &2150958301859689389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011274162962137875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 5
+  randScaleMin: 0
+  randScaleMax: 0
+  isChangeScale: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Scrolling : MonoBehaviour
@@ -13,12 +11,10 @@ public class Scrolling : MonoBehaviour
     private float viewZone = 10f;
     private int leftIndex;
     private int rightIndex;
-    private float lastCameraX;
 
     private void Start()
     {
         cameraTransform = Camera.main.transform;
-        lastCameraX = cameraTransform.position.x;
 
         layers = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
@@ -33,10 +29,6 @@ public class Scrolling : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector2.left * parallaxSpeed * Time.deltaTime);
-
-/*        float deltaX = cameraTransform.position.x - lastCameraX;
-        transform.position += Vector3.right * (deltaX * parallaxSpeed);
-        lastCameraX = cameraTransform.position.x;*/
 
         if (cameraTransform.position.x < (layers[leftIndex].transform.position.x + viewZone))
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class InteractionPlayer : MonoBehaviour
 {
     [SerializeField] private float damage = 25;
     [SerializeField] private float addEnergy = 10f;

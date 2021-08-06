@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9199383035683429206}
   - component: {fileID: 705785527650291325}
   - component: {fileID: 8985100241113812069}
-  - component: {fileID: 617000795687428151}
   - component: {fileID: 789348824273052165}
   - component: {fileID: 7483240070514031296}
+  - component: {fileID: 7358026336196525358}
   m_Layer: 0
   m_Name: Dread
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9199383035683429207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.36, y: 0.33217, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.69586}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,19 +124,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &617000795687428151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199383035683429207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d294dbdda5f564995c97ebd0de8bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &789348824273052165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0a682665eb1041bfd61691e10807e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyItem: 0
+  isDestroyObject: 0
   isDamagePigeon: 0
   isAddEnergy: 1
   isDestroyPigeon: 0
@@ -167,3 +154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   addEnergy: 20
+--- !u!114 &7358026336196525358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199383035683429207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 5
+  randScaleMin: 0
+  randScaleMax: 0
+  isChangeScale: 0
