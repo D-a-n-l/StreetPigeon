@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 5038403494952862921}
   - component: {fileID: 968955961}
   - component: {fileID: 4650498347401694329}
+  - component: {fileID: 2432808644180543891}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -200,3 +201,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 33
+  addEnergy: 10
+--- !u!114 &2432808644180543891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446229773761414957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac0a682665eb1041bfd61691e10807e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyItem: 0
+  isDamagePigeon: 1
+  isAddEnergy: 0

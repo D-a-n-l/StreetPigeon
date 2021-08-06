@@ -1,32 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private float timeBtwSpawn = 0f;
-    [SerializeField] float startTimeBtwSpawn;
-    [SerializeField] float decrease;
-    [SerializeField] float minValue;
+    [SerializeField] private GameObject[] itemPrefab;
 
-    public GameObject prefabWaring;
+    [Header("Time between spanwns")]
+    [SerializeField] private float minTimeBtwSpawn = 5f;
+    [SerializeField] private float maxTimeBtwSpawn = 10f;
 
-    private void Update()
+    [Header("Spawn position range")]
+    [SerializeField] private float minPosSpawn = -5;
+    [SerializeField] private float maxPosSpawn = 5;
+    [Space]
+    [SerializeField] private bool isSpawn;
+
+    IEnumerator Start()
     {
-        
-        if (timeBtwSpawn <= 0)
+        while (isSpawn)
         {
-            Instantiate(prefabWaring, transform.position, Quaternion.identity);
-            timeBtwSpawn = startTimeBtwSpawn;
-            if (minValue < startTimeBtwSpawn)
-            {
-                startTimeBtwSpawn -= decrease;
-            }
-
+            int randItem = Random.Range(0, itemPrefab.Length);
+            yield return new WaitForSeconds(Random.Range(minTimeBtwSpawn, maxTimeBtwSpawn));
+            Instantiate(itemPrefab[randItem], new Vector2(transform.position.x, Random.Range(minPosSpawn, maxPosSpawn)), Quaternion.identity);
         }
-        else
-        {
-            timeBtwSpawn -= Time.deltaTime;
-        }
-            
-    }   
-
+    }
 }

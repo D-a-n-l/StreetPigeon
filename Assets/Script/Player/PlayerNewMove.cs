@@ -2,7 +2,7 @@
 
 public class PlayerNewMove : MonoBehaviour
 {
-    [SerializeField] private float speedFly = 5f;
+    [SerializeField] private float speedFlyUp = 5f;
     [SerializeField] private float decreaseSpeed = 2f;
     private float maxSpeed;
 
@@ -11,26 +11,30 @@ public class PlayerNewMove : MonoBehaviour
 
     private void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
-        maxSpeed = speedFly;
-        speedFly = decreaseSpeed;  
+        maxSpeed = speedFlyUp;
+        speedFlyUp = decreaseSpeed;  
     }
 
     private void Update()
     {
-        rb.velocity = Vector2.up * -speedFly;
+        rb.velocity = Vector2.up * -speedFlyUp;
     }
 
-    public void OnButtonDown() // для кнопки 
+    public void OnButtonDown()
     {
-        speedFly = -maxSpeed;
+        speedFlyUp = -maxSpeed;
         animator.SetBool("isFly", true);
     }
 
     public void OnButtonUp()
     {
-        speedFly = decreaseSpeed;
+        speedFlyUp = decreaseSpeed;
         animator.SetBool("isFly", false);
+    }
+    
+    public void NoSpeedEnergy()
+    {
+        speedFlyUp = 1f;
     }
 }

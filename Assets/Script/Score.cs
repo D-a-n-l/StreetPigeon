@@ -1,11 +1,11 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 class Score : MonoBehaviour
 {
     private int score = 0;
     private float timeNext;
-    public TextMeshProUGUI text;
+    public Text text;
 
     private void Update()
     {

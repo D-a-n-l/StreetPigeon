@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] short damage = 25;
+    [SerializeField] private float damage = 25;
+    [SerializeField] private float addEnergy = 10f;
 
-    public short InflictDamage()
+    public float InflictDamage()
     {
         return damage;
+    }
+
+    public float AddEnergy()
+    {
+        return addEnergy;
     }
 }
