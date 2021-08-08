@@ -11,7 +11,7 @@ public class GameSession : MonoBehaviour
     [Header("Properties panel")]
     [SerializeField] private GameObject panelDead;
     [SerializeField] private Text textFinalScore;
-    [SerializeField] private bool isActivePanel = true;
+    [SerializeField] private bool isActivePanel = false;
     
     [Header("Properties text score")]
     [SerializeField] private Text textScore, textHighScore;
@@ -19,6 +19,9 @@ public class GameSession : MonoBehaviour
     private int scoreCounter = 0;
     private int scoreHighCounter;
     private float timeIncreaseScore;
+
+    [SerializeField] private GameObject panelPause;
+    private bool isPause = false;
 
     private void Start()
     {
@@ -30,9 +33,16 @@ public class GameSession : MonoBehaviour
         textHighScore.text = scoreHighCounter.ToString();
         textScore.text = scoreCounter.ToString();
         IncreaseVelocityGame();
-    
+
+        if (!isActivePanel)
+        {
             AddNumberScore();
-        
+        }
+        else 
+        {
+            textFinalScore.text = scoreCounter.ToString();
+            panelDead.SetActive(isActivePanel);
+        }
     }
 
     private void IncreaseVelocityGame()
@@ -47,8 +57,7 @@ public class GameSession : MonoBehaviour
 
     public void PanelIsActive()
     {
-        textFinalScore.text = scoreCounter.ToString();
-        panelDead.SetActive(isActivePanel);
+        isActivePanel = true;
     }
 
     private void AddNumberScore()
@@ -70,5 +79,19 @@ public class GameSession : MonoBehaviour
             scoreHighCounter = scoreCounter;
             MasterPlayerPrefs.SetHighScoreMaster(scoreHighCounter);
         }
+    }
+
+    public void OnButtonMenu()
+    {
+        isPause = true;
+        Time.timeScale = 0;
+        panelPause.SetActive(isPause);
+    }
+
+    public void OnButtonContinue()
+    {
+        isPause = false;
+        Time.timeScale = nowVelocityGame;
+        panelPause.SetActive(isPause);
     }
 }

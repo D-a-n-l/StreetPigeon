@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8011274162962137875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -739055207
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7487790478215196332, guid: 8943073bc86b84443af685eb57b8c06c, type: 3}
+  m_Sprite: {fileID: 7845140669822924134, guid: af6156d16e15e2c4391b29d05fddd489, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.056035303, y: 7.427904}
-  m_Size: {x: 2.57154, y: 5.5462236}
+  m_Offset: {x: 0.0024106286, y: 3.919865}
+  m_Size: {x: 1.6063074, y: 3.6693833}
   m_Direction: 0
 --- !u!114 &6766956566820054244
 MonoBehaviour:
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac0a682665eb1041bfd61691e10807e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyItem: 0
+  isDestroyObject: 0
   isDamagePigeon: 1
   isAddEnergy: 0
   isDestroyPigeon: 0
