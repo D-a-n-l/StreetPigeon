@@ -34,8 +34,8 @@ public class ConflictZone : MonoBehaviour
             }
             if (isDestroyPigeon)
             {
-                FindObjectOfType<GameSession>().PanelIsActive();
                 player.ChangeHealthPigeon(INSTANTLY_DEATH);
+                FindObjectOfType<GameSession>().PanelIsActive();
                 Destroy(other.gameObject);
             }
         }

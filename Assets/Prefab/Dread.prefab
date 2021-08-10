@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9199383035683429206}
   - component: {fileID: 705785527650291325}
   - component: {fileID: 8985100241113812069}
+  - component: {fileID: 5071151404697151087}
   - component: {fileID: 789348824273052165}
   - component: {fileID: 7483240070514031296}
   - component: {fileID: 7358026336196525358}
@@ -124,6 +125,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5071151404697151087
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199383035683429207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7bf7cde95c042f42b48827500d3a36b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &789348824273052165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 5
+  speedMove: 6.5
   randScaleMin: 0
   randScaleMax: 0
   isChangeScale: 0

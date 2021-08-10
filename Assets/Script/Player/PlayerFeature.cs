@@ -18,7 +18,6 @@ public class PlayerFeature : MonoBehaviour
     [Header("Bar Energy")]
     private float maxEnergy;
     [SerializeField] private Image barEnergy;
-    [SerializeField] private Image barEnergyEffect;
 
     private Material pigeonBlink;
     private Material pigeonDefault;
@@ -64,7 +63,6 @@ public class PlayerFeature : MonoBehaviour
             barEnergy.fillAmount = energy / maxEnergy;
             
         }
-        barEnergyEffect.fillAmount = BarEffect(barEnergy.fillAmount, barEnergyEffect.fillAmount, 0.0009f);
     }
 
     public float BarEffect(float bar, float effect, float speedLineEffect)
@@ -85,11 +83,13 @@ public class PlayerFeature : MonoBehaviour
         if (energy <= maxEnergy)
         {
             energy += addEnergy;
+            barEnergy.fillAmount = energy / maxEnergy;
         }
         
         if (energy >= maxEnergy)
         {
             energy = maxEnergy;
+            barEnergy.fillAmount = energy / maxEnergy;
         }
     }
 
@@ -116,6 +116,7 @@ public class PlayerFeature : MonoBehaviour
 
     public void ChangeHealthPigeon(float decreaseHealth)
     {
-        health -= decreaseHealth;
+        health = decreaseHealth;
+        barHealth.fillAmount = health;
     }
 }

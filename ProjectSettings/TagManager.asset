@@ -44,6 +44,9 @@ TagManager:
   - name: WaringItem
     uniqueID: 3555912089
     locked: 0
+  - name: Partical
+    uniqueID: 600144737
+    locked: 0
   - name: Player
     uniqueID: 866910205
     locked: 0

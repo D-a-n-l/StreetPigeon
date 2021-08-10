@@ -26,6 +26,7 @@ public class GameSession : MonoBehaviour
     private void Start()
     {
         scoreHighCounter = MasterPlayerPrefs.GetHighScoreMaster();
+        Time.timeScale = nowVelocityGame;
     }
 
     private void Update()
