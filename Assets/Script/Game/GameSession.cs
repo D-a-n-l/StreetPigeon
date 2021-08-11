@@ -20,9 +20,6 @@ public class GameSession : MonoBehaviour
     private int scoreHighCounter;
     private float timeIncreaseScore;
 
-    [SerializeField] private GameObject panelPause;
-    private bool isPause = false;
-
     private void Start()
     {
         scoreHighCounter = MasterPlayerPrefs.GetHighScoreMaster();
@@ -82,17 +79,8 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    public void OnButtonMenu()
+    public float VelocityGame()
     {
-        isPause = true;
-        Time.timeScale = 0;
-        panelPause.SetActive(isPause);
-    }
-
-    public void OnButtonContinue()
-    {
-        isPause = false;
-        Time.timeScale = nowVelocityGame;
-        panelPause.SetActive(isPause);
+        return nowVelocityGame;
     }
 }
