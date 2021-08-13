@@ -6,8 +6,8 @@ public class PlayerFeature : MonoBehaviour
     [Header("Character properties")]
     [SerializeField] private float health = 100f;
     [SerializeField] private float energy = 100f;
-    [Range(0.0001f, 0.001f)]
-    [SerializeField] private float decreaseEnergy = 0.05f;
+    [Range(0.0001f, 0.1f)]
+    [SerializeField] private float decreaseEnergy = 0.005f;
     [SerializeField] private float speedEffect = 0.003f;
 
     [Header("Bar Health")]
@@ -18,6 +18,8 @@ public class PlayerFeature : MonoBehaviour
     [Header("Bar Energy")]
     private float maxEnergy;
     [SerializeField] private Image barEnergy;
+
+    [SerializeField] private AudioClip musicDeath;
 
     private Material pigeonBlink;
     private Material pigeonDefault;
@@ -38,7 +40,7 @@ public class PlayerFeature : MonoBehaviour
         maxEnergy = energy;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         LineHealth();
         LineEnergy();
@@ -60,8 +62,7 @@ public class PlayerFeature : MonoBehaviour
         if (rb.velocity.y >= 0)
         {
             energy -= decreaseEnergy * maxEnergy;
-            barEnergy.fillAmount = energy / maxEnergy;
-            
+            barEnergy.fillAmount = energy / maxEnergy;   
         }
     }
 
@@ -99,7 +100,8 @@ public class PlayerFeature : MonoBehaviour
         if (health <= 1)
         {
             FindObjectOfType<GameSession>().PanelIsActive();
-            Destroy(gameObject, 1f);
+            AudioSource.PlayClipAtPoint(musicDeath, transform.position, MasterPlayerPrefs.GetVolumeMaster());
+            Destroy(gameObject);
         }
     }  
 
@@ -118,5 +120,6 @@ public class PlayerFeature : MonoBehaviour
     {
         health = decreaseHealth;
         barHealth.fillAmount = health;
+        barHealthEffect.fillAmount = health;
     }
 }

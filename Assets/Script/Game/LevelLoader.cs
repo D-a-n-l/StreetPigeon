@@ -3,21 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private short gameScene = 1; 
-    [SerializeField] private short menuScene = 0; 
+    private const short GAME_SCENE = 1; 
+    private const short MENU_SCENE = 0; 
+    private const short LEARNING_SCENE = 2; 
     
     public void PlayGame()
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(GAME_SCENE);
     }
 
     public void MenuLoad()
     {
-        SceneManager.LoadScene(menuScene);
+        SceneManager.LoadScene(MENU_SCENE);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void LearnignLoad()
+    {
+        SceneManager.LoadScene(LEARNING_SCENE);
     }
 }

@@ -1,18 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
+
 
 public class MeteorMove : MonoBehaviour
 {
-    private const int MOUSE_BUTTON_LEFT = 0;
-
     [SerializeField] private float speedMove = 5f;
     [SerializeField] private Vector3 offset;
     [SerializeField] private int countTup;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private Transform pointExplosion;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip death;
+
     private Vector3 pigeonPosition;
     private int countTupDoes;
 
     private void Start()
     {
-        pigeonPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform.position;
+        try
+        {
+            pigeonPosition = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().transform.position;
+        }
+        catch (Exception)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -41,7 +55,14 @@ public class MeteorMove : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            DestroyObjectPlay();
         }
+    }
+
+    private void DestroyObjectPlay()
+    {
+        Instantiate(explosion, pointExplosion.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(death, transform.position);
+        Destroy(gameObject);
     }
 }

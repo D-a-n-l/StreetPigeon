@@ -49,7 +49,7 @@ public class GameSession : MonoBehaviour
         {
             nowVelocityGame += howAddTime;
             Time.timeScale = nowVelocityGame;
-            whenIncreaseVelocityGame *= 2;
+            whenIncreaseVelocityGame += 150;
         }
     }
 

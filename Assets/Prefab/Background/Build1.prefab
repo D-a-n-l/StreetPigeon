@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9890b0877d63db43b0a79d3ab9bcbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeed: 8
+  parallaxSpeed: 0.5
   backgroundSize: 31.6
 --- !u!1 &721618570576147280
 GameObject:
