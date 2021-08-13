@@ -12,9 +12,11 @@ public class ConflictZone : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
 
     private InteractionPlayer damage;
+    private CameraShake cameraShake;
     
     private void Start()
     {
+        cameraShake = FindObjectOfType<CameraShake>();
         damage = GetComponent<InteractionPlayer>();
     }
     
@@ -26,6 +28,7 @@ public class ConflictZone : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(audioClip, new Vector2(0f, 0f), MasterPlayerPrefs.GetVolumeMaster());
                 player.DamagePlayer(damage.InflictDamage());
+                cameraShake.ShakeCamera();
                 player.OnBlinkDamage();
             }
             
