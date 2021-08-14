@@ -15,6 +15,7 @@ public class LevelLoader : MonoBehaviour
     public void MenuLoad()
     {
         SceneManager.LoadScene(MENU_SCENE);
+        Time.timeScale = 1f;
     }
 
     public void Quit()
