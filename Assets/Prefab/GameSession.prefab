@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowVelocityGame: 1
-  whenIncreaseVelocityGame: 100
+  whenIncreaseVelocityGame: 150
+  addNextVeclocity: 150
   howAddTime: 0.2
   panelDead: {fileID: 0}
   textFinalScore: {fileID: 0}
@@ -52,4 +53,3 @@ MonoBehaviour:
   textScore: {fileID: 0}
   textHighScore: {fileID: 0}
   timeBtwScore: 0.5
-  panelPause: {fileID: 0}

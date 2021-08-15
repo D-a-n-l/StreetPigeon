@@ -6,6 +6,7 @@ public class GameSession : MonoBehaviour
     [Header("Boost velocity")]
     [Range(0, 10)] [SerializeField] private float nowVelocityGame = 1f;
     [SerializeField] private float whenIncreaseVelocityGame = 100f;
+    [SerializeField] private float addNextVeclocity = 150;
     [SerializeField] private float howAddTime = 0.1f;
 
     [Header("Properties panel")]
@@ -49,7 +50,7 @@ public class GameSession : MonoBehaviour
         {
             nowVelocityGame += howAddTime;
             Time.timeScale = nowVelocityGame;
-            whenIncreaseVelocityGame += 150;
+            whenIncreaseVelocityGame += addNextVeclocity;
         }
     }
 
