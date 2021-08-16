@@ -84,4 +84,9 @@ public class GameSession : MonoBehaviour
     {
         return nowVelocityGame;
     }
+
+    public float ShowScoreGame()
+    {
+        return scoreCounter;
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PausePanel : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup mixer;
+    private GameSession gameSession;
 
     private void Start()
     {

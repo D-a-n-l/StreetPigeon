@@ -101,6 +101,7 @@ public class PlayerFeature : MonoBehaviour
         {
             FindObjectOfType<GameSession>().PanelIsActive();
             AudioSource.PlayClipAtPoint(musicDeath, transform.position, MasterPlayerPrefs.GetVolumeMaster());
+            ChangeHealthPigeon(0);
             Destroy(gameObject);
         }
     }  
