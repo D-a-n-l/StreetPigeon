@@ -5,6 +5,7 @@ public class MasterPlayerPrefs : MonoBehaviour
     private const string HIGH_SCORE_KEY = "highScore";
     private const string VOLUME_MASTER = "MasterVolume";
     private const string VOLUME_TOGGLE_MUSIC = "MusicVolume";
+    private const string LEARNING_SCENE = "LearningScene";
 
     public static void SetHighScoreMaster(int highScore)
     {
@@ -46,5 +47,15 @@ public class MasterPlayerPrefs : MonoBehaviour
     public static int GetVolumeToggleMusic()
     {
         return PlayerPrefs.GetInt(VOLUME_TOGGLE_MUSIC, 1);
+    }
+
+    public static int GetLearningScnene()
+    {
+        return PlayerPrefs.GetInt(LEARNING_SCENE, 0);
+    }
+
+    public static void SetLearningScnene(int enabled)
+    {
+        PlayerPrefs.SetInt(LEARNING_SCENE, enabled);
     }
 }

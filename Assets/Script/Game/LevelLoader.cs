@@ -13,20 +13,16 @@ public class LevelLoader : MonoBehaviour
     
     public void PlayGame()
     {
-        if (isStartLoader)
+        isStartLoader = MasterPlayerPrefs.GetLearningScnene() == 1;
+        if (!isStartLoader)
         {
-            StartCoroutine(FirstLoader());
+            MasterPlayerPrefs.SetLearningScnene(1);
+            SceneManager.LoadScene(LEARNING_SCENE);
         }
         else
         {
             SceneManager.LoadScene(GAME_SCENE);
         }
-    }
-
-    IEnumerator FirstLoader()
-    {
-        yield return new WaitForSeconds(timeLoad);
-        SceneManager.LoadScene(GAME_SCENE);
     }
 
     public void MenuLoad()
@@ -43,5 +39,10 @@ public class LevelLoader : MonoBehaviour
     public void LearnignLoad()
     {
         SceneManager.LoadScene(LEARNING_SCENE);
+    }
+
+    public void LinkChannal()
+    {
+        Application.OpenURL("https://t.me/heavy_ascent");
     }
 }

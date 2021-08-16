@@ -13,14 +13,17 @@ public class PausePanel : MonoBehaviour
         GetComponentInChildren<Slider>().value = MasterPlayerPrefs.GetVolumeMaster();
     }
 
-    public void OnEneble()
+    public void OnEneble(bool value)
     {
-        Time.timeScale = 0f;
+        Time.timeScale = value ? 0 : Time.timeScale = FindObjectOfType<GameSession>().VelocityGame();
     }
 
-    public void OnDisble()
+    private void OnApplicationPause(bool pause)
     {
-        Time.timeScale = FindObjectOfType<GameSession>().VelocityGame();
+        if (pause)
+        {
+            OnEneble(true);
+        }
     }
 
     public void ToggleMusic(bool enabled)
