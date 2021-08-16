@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028f6fd4b5648da408750b332adcc576, type: 3}
+  m_Name: Translates
+  m_EditorClassIdentifier: 
+  languages:
+  - Rus
+  - Eng
+  words:
+  - phrases:
+    - langName: Rus
+      phrase: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F"
+    - langName: Eng
+      phrase: Go to game
+    key: _Go
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041C\u0435\u043D\u044E"
+    - langName: Eng
+      phrase: Menu
+    key: _Menu
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0417\u0430\u043D\u043E\u0432\u043E"
+    - langName: Eng
+      phrase: Restart
+    key: _Restart
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041F\u0430\u0443\u0437\u0430"
+    - langName: Eng
+      phrase: Pause
+    key: _Pause
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0412\u0435\u0440\u0441\u0438\u044F 0.1"
+    - langName: Eng
+      phrase: Version 0.1
+    key: _Version
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041D\u0430\u0447\u0430\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
+    - langName: Eng
+      phrase: Start learning
+    key: _SLearn
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041F\u043E\u043C\u043E\u0449\u044C"
+    - langName: Eng
+      phrase: Help
+    key: _Help
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041D\u0430\u0437\u0430\u0434"
+    - langName: Eng
+      phrase: Back
+    key: _Back
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041C\u0443\u0437\u044B\u043A\u0430"
+    - langName: Eng
+      phrase: Music
+    key: _Music
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0417\u0432\u0443\u043A\u043E\u0432\u044B\u0435 \u044D\u0444\u0444\u0435\u043A\u0442\u044B"
+    - langName: Eng
+      phrase: Sound FX
+    key: _SE
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0412\u044B\u0445\u043E\u0434"
+    - langName: Eng
+      phrase: Quit
+    key: _Quit
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041E \u043D\u0430\u0441"
+    - langName: Eng
+      phrase: About
+    key: _About
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+    - langName: Eng
+      phrase: Setting
+    key: _Setting
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0418\u0433\u0440\u0430\u0442\u044C"
+    - langName: Eng
+      phrase: Play
+    key: _Play
+    hide: 0
