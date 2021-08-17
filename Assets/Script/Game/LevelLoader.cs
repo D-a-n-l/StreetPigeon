@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,6 @@ public class LevelLoader : MonoBehaviour
     private const short LEARNING_SCENE = 2; 
     
     [SerializeField] private bool isStartLoader = false;
-    [SerializeField] private float timeLoad = 0.1f;
     
     public void PlayGame()
     {

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406325960828683988}
   - component: {fileID: 4406325960828683987}
+  - component: {fileID: 1523567932279889872}
   m_Layer: 0
   m_Name: Languages
   m_TagString: Untagged
@@ -45,3 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translates: {fileID: 11400000, guid: 44cc696728bd56e4990fc47e486d6812, type: 2}
   activatedTexts: []
+--- !u!114 &1523567932279889872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406325960828683986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93433ec638dbaad4795f7e904d881800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

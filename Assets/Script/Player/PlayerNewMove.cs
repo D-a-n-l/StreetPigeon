@@ -4,6 +4,7 @@ public class PlayerNewMove : MonoBehaviour
 {
     [SerializeField] private float speedFlyUp = 5f;
     [SerializeField] private float decreaseSpeed = 2f;
+
     private float maxSpeed;
 
     public Animator animator;
@@ -37,4 +38,5 @@ public class PlayerNewMove : MonoBehaviour
     {
         speedFlyUp = 1f;
     }
+
 }
