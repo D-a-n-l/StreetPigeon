@@ -18,14 +18,6 @@ public class PausePanel : MonoBehaviour
         Time.timeScale = value ? 0 : Time.timeScale = FindObjectOfType<GameSession>().VelocityGame();
     }
 
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            OnEneble(true);
-        }
-    }
-
     public void ToggleMusic(bool enabled)
     {
         if(enabled)
@@ -42,7 +34,7 @@ public class PausePanel : MonoBehaviour
 
     public void ChangeVolume(float volume)
     {
-        mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80f, 0f, volume));
+        mixer.audioMixer.SetFloat("SoundFXVolume", Mathf.Lerp(-80f, 0f, volume));
         MasterPlayerPrefs.SetVolumeMaster(volume);
     }
 }

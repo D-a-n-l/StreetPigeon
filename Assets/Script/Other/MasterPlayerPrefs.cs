@@ -3,7 +3,7 @@ using UnityEngine;
 public class MasterPlayerPrefs : MonoBehaviour
 {
     private const string HIGH_SCORE_KEY = "highScore";
-    private const string VOLUME_MASTER = "MasterVolume";
+    private const string VOLUME_SFX = "SoundFXVolume";
     private const string VOLUME_TOGGLE_MUSIC = "MusicVolume";
     private const string LEARNING_SCENE = "LearningScene";
 
@@ -31,12 +31,12 @@ public class MasterPlayerPrefs : MonoBehaviour
 
     public static void SetVolumeMaster(float volume)
     {
-        PlayerPrefs.SetFloat(VOLUME_MASTER, volume);
+        PlayerPrefs.SetFloat(VOLUME_SFX, volume);
     }
 
     public static float GetVolumeMaster()
     {
-        return PlayerPrefs.GetFloat(VOLUME_MASTER, 1f);
+        return PlayerPrefs.GetFloat(VOLUME_SFX, 1f);
     }
 
     public static void SetVolumeToggleMusic(int enabled)

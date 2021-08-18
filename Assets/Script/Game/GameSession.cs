@@ -17,12 +17,14 @@ public class GameSession : MonoBehaviour
     [Header("Properties text score")]
     [SerializeField] private Text textScore, textHighScore;
     [SerializeField] private float timeBtwScore = 0.5f;
+    private PausePanel pausePanel;
+    
     private int scoreCounter = 0;
     private int scoreHighCounter;
     private float timeIncreaseScore;
-
     private void Start()
     {
+        pausePanel = FindObjectOfType<PausePanel>();
         scoreHighCounter = MasterPlayerPrefs.GetHighScoreMaster();
         Time.timeScale = nowVelocityGame;
     }
@@ -88,5 +90,13 @@ public class GameSession : MonoBehaviour
     public float ShowScoreGame()
     {
         return scoreCounter;
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            pausePanel.OnEneble(true);
+        }
     }
 }
