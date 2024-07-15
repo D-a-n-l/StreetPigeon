@@ -39,7 +39,7 @@ public class MovingPlayer : MonoBehaviour
 
         _currentSpeed = _speedFlyDown;
 
-        _defaultRotation = transform.rotation.eulerAngles;
+        _defaultRotation = new Vector3(0f, 0f, -7f);
 
         transform.DOLocalRotate(_newRotation, _durationRotation);
 
@@ -59,34 +59,46 @@ public class MovingPlayer : MonoBehaviour
 
     public void OnPressed(bool value) => _isPressed = value;
 
-    public void PressedButton()
+    public void PressedButton(float speed)
     {
         if (_isPressed == true)
         {
-            ButtonDown();
+            ButtonDown(speed);
         }
     }
 
-    public void ButtonDown()
+    public void ButtonDown(float speed)
     {
         if (_energy.Current <= 0)
             return;
 
-        _currentSpeed = _speedFlyUp;
+        _currentSpeed = speed;
 
-        transform.DOLocalRotate(_defaultRotation, _durationRotation);
+        transform.DOLocalRotate(_newRotation, _durationRotation);
 
         OnButtonDown.Invoke();
     }
 
-    public void ButtonUp()
+    public void Rotate(float rotateZ)
+    {
+        _newRotation = new Vector3(0f, 0f, rotateZ);
+
+        //NewMethod();
+    }
+
+    public void NewMethod()
+    {
+        transform.DOLocalRotate(_newRotation, _durationRotation);
+    }
+
+    public void ButtonUp(float speed)
     {
         if (_energy.Current <= 0)
             return;
 
-        _currentSpeed = _speedFlyDown;
+        _currentSpeed = speed;
 
-        transform.DOLocalRotate(_newRotation, _durationRotation);
+        transform.DOLocalRotate(_defaultRotation, _durationRotation);
 
         OnButtonUp.Invoke();
     }

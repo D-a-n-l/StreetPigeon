@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UI Group
+  m_EditorClassIdentifier: 
+  m_GroupName: UI Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 67e27e09f11efb54abccf9097c4feaa3
+  m_SerializeEntries:
+  - m_GUID: cbce3dab87504e642a9056e2911380ba
+    m_Address: Assets/Prefab/SettingsMain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a805a5667142f14fae856798af87c75
+    m_Address: Assets/Scripts/Spawners/PauseMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7eb9eba44af153c41a840be38069c272, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 78f7191295485f040a959fff6abbaf64, type: 2}
+    - {fileID: 11400000, guid: 429556777ef2d334190657dce90fd523, type: 2}
