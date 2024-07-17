@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 2019427930241148060}
   - component: {fileID: 2019427930241148051}
   - component: {fileID: 857053504701196073}
-  - component: {fileID: 2653691974137913969}
   - component: {fileID: 5853691674373879432}
-  - component: {fileID: 1778039935454228575}
   - component: {fileID: 5558302394188035398}
+  - component: {fileID: 1778039935454228575}
   m_Layer: 0
   m_Name: Tree 1
   m_TagString: Untagged
@@ -125,33 +124,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.025500838, y: -0.101894714}
   m_Size: {x: 2.3917563, y: 6.4273157}
   m_Direction: 0
---- !u!50 &2653691974137913969
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019427930241148050}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &5853691674373879432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +154,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 857053504701196073}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _healthIncrease: 0
   OnHealthIncrease:
     m_PersistentCalls:
@@ -194,6 +178,18 @@ MonoBehaviour:
   OnEnergyIncrease:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5558302394188035398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019427930241148050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2bef717293ba74cac8474bbeeee886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1778039935454228575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,18 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5.3
---- !u!114 &5558302394188035398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019427930241148050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2bef717293ba74cac8474bbeeee886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5968258246000397013
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +246,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2399615324789425078, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9b9a4b394e1bd5441b112094bd6b7acd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97d7f021c5569b248ba2a276f089b706, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

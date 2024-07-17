@@ -29,6 +29,9 @@ public static class LocalAssetLoader
 
     public static void UnloadAlll()
     {
+        if (_cashedObject.Count() == 0)
+            return;
+
         for(int i = 0; i < 2; i++)
         {
             _cashedObject.First().SetActive(false);

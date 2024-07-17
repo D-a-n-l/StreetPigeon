@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: UI Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 67e27e09f11efb54abccf9097c4feaa3
+  m_GUID: 6fc87cd768171d64cb558c81e1f42869
   m_SerializeEntries:
   - m_GUID: cbce3dab87504e642a9056e2911380ba
     m_Address: Assets/Prefab/SettingsMain.prefab
@@ -31,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 7eb9eba44af153c41a840be38069c272, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 78f7191295485f040a959fff6abbaf64, type: 2}
-    - {fileID: 11400000, guid: 429556777ef2d334190657dce90fd523, type: 2}
+    - {fileID: 11400000, guid: a3e9537de85815046a3e8c819262a8ef, type: 2}
+    - {fileID: 11400000, guid: f6791837dc2844d46a30e67683e049bb, type: 2}

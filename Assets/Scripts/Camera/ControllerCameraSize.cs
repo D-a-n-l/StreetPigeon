@@ -19,9 +19,9 @@ public class ControllerCameraSize : MonoBehaviour
 
     private void Awake()
     {
-        _cinemachineVirtualCamera ??= GetComponent<CinemachineVirtualCamera>();
-
         _mainCamera = Camera.main;
+
+        _cinemachineVirtualCamera ??= GetComponent<CinemachineVirtualCamera>();
 
         _initialSize = _mainCamera.orthographicSize;
 

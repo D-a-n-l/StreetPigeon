@@ -47,6 +47,12 @@ public static class Enums
         LoopRotate
     }
 
+    public enum TypeStat
+    {
+        Health,
+        Energy
+    }
+
     [Flags]
     public enum PlayerEvents
     {
@@ -56,11 +62,5 @@ public static class Enums
         energyOnDecrease = 1 << 3,
         energyOnIncrease = 1 << 4,
         energyOnZeroing = 1 << 5,
-    }
-
-    public enum TypeStat
-    {
-        Health,
-        Energy
     }
 }

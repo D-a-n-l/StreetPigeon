@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2399615324789425078, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eabf266d6829e76499d8f71e0ef6a1b3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8de55219eb51a9f40b6f3c1c53aaa33f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d29bd64ea157244e9409cf7c705df43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadingAsset: 0
+  _audioSource: {fileID: 0}
   _randomPitch: {x: 0.8, y: 1.2}
 --- !u!1 &9199383035683429207
 GameObject:
@@ -329,12 +331,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDestroyObject: 1
-  _state: 16
+  _state: 18
   _healthDecrease: 0
   OnHealthDecrease:
     m_PersistentCalls:
       m_Calls: []
-  _healthIncrease: 0
+  _healthIncrease: 33
   OnHealthIncrease:
     m_PersistentCalls:
       m_Calls: []

@@ -7,25 +7,21 @@ using Zenject;
 public class MovingPlayer : MonoBehaviour
 {
     [SerializeField]
-    private float _speedFlyUp = 5f;
-
-    [SerializeField]
-    private float _speedFlyDown = -2f;
-
-    [SerializeField]
-    private Vector3 _newRotation;
+    private float _speedFall = -2f;
 
     [SerializeField]
     [Min(0.001f)]
     private float _durationRotation;
 
+    private float _currentSpeed;
+
+    private bool _isPressed = false;
+
     private Rigidbody2D _rigidbody2d;
 
     private Vector3 _defaultRotation;
 
-    private float _currentSpeed;
-
-    private bool _isPressed = false;
+    private Vector3 _newRotation;
 
     private Energy _energy;
 
@@ -33,23 +29,24 @@ public class MovingPlayer : MonoBehaviour
 
     public UnityEvent OnButtonUp;
 
-    private void Start()//поменять DOLocalRotate в другой скрипт
-    {
-        _rigidbody2d ??= GetComponent<Rigidbody2D>();
-
-        _currentSpeed = _speedFlyDown;
-
-        _defaultRotation = new Vector3(0f, 0f, -7f);
-
-        transform.DOLocalRotate(_newRotation, _durationRotation);
-
-        EnergyEvents.OnZeroing.AddListener(()=> SwitchCurrentSpeed(-1f));
-    }
-
     [Inject]
     private void Construct(Energy energy)
     {
         _energy = energy;
+    }
+
+    private void Start()
+    {
+        _rigidbody2d ??= GetComponent<Rigidbody2D>();
+
+        _currentSpeed = _speedFall;
+
+        StartRotation();
+    }
+
+    private void OnEnable()
+    {
+        StartRotation();
     }
 
     private void FixedUpdate()
@@ -58,6 +55,15 @@ public class MovingPlayer : MonoBehaviour
     }
 
     public void OnPressed(bool value) => _isPressed = value;
+
+    public void Rotate(float rotateZ) => _newRotation = new Vector3(0f, 0f, rotateZ);
+
+    public void StartRotation()
+    {
+        _defaultRotation = new Vector3(0f, 0f, -7f);
+
+        transform.DOLocalRotate(_defaultRotation, _durationRotation);
+    }
 
     public void PressedButton(float speed)
     {
@@ -79,18 +85,6 @@ public class MovingPlayer : MonoBehaviour
         OnButtonDown.Invoke();
     }
 
-    public void Rotate(float rotateZ)
-    {
-        _newRotation = new Vector3(0f, 0f, rotateZ);
-
-        //NewMethod();
-    }
-
-    public void NewMethod()
-    {
-        transform.DOLocalRotate(_newRotation, _durationRotation);
-    }
-
     public void ButtonUp(float speed)
     {
         if (_energy.Current <= 0)
@@ -107,7 +101,7 @@ public class MovingPlayer : MonoBehaviour
     {
         _currentSpeed = newSpeed;
 
-        transform.DOLocalRotate(_newRotation, _durationRotation);
+        StartRotation();
 
         OnButtonUp.Invoke();
     }

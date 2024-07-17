@@ -9,7 +9,8 @@ public class AppearingText : MonoBehaviour
 
     public string[] Words => _words;
 
-    [SerializeField] 
+    [SerializeField]
+    [Min(0.001f)]
     private float _waitTimeBetweenWord = 2f;
 
     private WaitForSeconds _waitForSeconds;

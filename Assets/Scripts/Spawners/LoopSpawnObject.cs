@@ -9,10 +9,12 @@ public class LoopSpawnObject : MonoBehaviour
     private SpawnerPreset _spawnerPreset;
 
     [Space]
-    [SerializeField] 
+    [SerializeField]
+    [Min(0.001f)]
     private float _timeSpawn = 5f;
 
-    [SerializeField] 
+    [SerializeField]
+    [Min(0.001f)]
     private float _timeDestroyObject = 5f;
 
     private AssetReference[] _currentDifficultyPrefabs;

@@ -5,5 +5,5 @@ public class SceneContextSingleton : MonoBehaviour//этот скрипт и Inj
 {
     public static SceneContext Instance;
 
-    private void Start() => Instance = GetComponent<SceneContext>();
+    private void Awake() => Instance = GetComponent<SceneContext>();
 }

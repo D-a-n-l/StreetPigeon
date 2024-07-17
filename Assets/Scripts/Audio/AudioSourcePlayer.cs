@@ -1,22 +1,30 @@
 using UnityEngine;
+using NaughtyAttributes;
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioSourcePlayer : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 _randomPitch = new(1f, 1f);
+    private bool _isLoadingAsset = false;
 
-    private AudioSource _source;
+    [SerializeField]
+    [HideIf(nameof(_isLoadingAsset))]
+    private AudioSource _audioSource;
+
+    [SerializeField]
+    private Vector2 _randomPitch = new(1f, 1f);
 
     private void Start()
     {
-        _source ??= GetComponent<AudioSource>();
+        if (_isLoadingAsset == true)
+            _audioSource = AudioSourceSingleton.Instance.AudioSource;
+        else
+            _audioSource = GetComponent<AudioSource>();
     }
 
     public void Play()
     {
-        _source.pitch = Random.Range(_randomPitch.x, _randomPitch.y);
+        _audioSource.pitch = Random.Range(_randomPitch.x, _randomPitch.y);
 
-        _source.Play();
+        _audioSource.Play();
     }
 }

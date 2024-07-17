@@ -189,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95472527}
   - component: {fileID: 95472526}
+  - component: {fileID: 95472528}
   m_Layer: 0
   m_Name: Button Click
   m_TagString: Untagged
@@ -206,7 +207,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6582031343346810856, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 11ec187e9f28b474c8c561b8b115a376, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d98bc470b0a346544a07ca425eedc8a1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -307,6 +308,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95472528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95472525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098a51f9c2953bf4c9805876e42ab2d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 95472526}
 --- !u!1 &240988518
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +335,7 @@ GameObject:
   - component: {fileID: 240988522}
   - component: {fileID: 240988521}
   - component: {fileID: 240988520}
+  - component: {fileID: 240988525}
   m_Layer: 5
   m_Name: Pigeon
   m_TagString: Untagged
@@ -443,7 +458,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -514,6 +529,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240988518}
   m_CullTransparentMesh: 1
+--- !u!114 &240988525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240988518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243675b822677424b81995a99c079991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _alpha: 0.2
 --- !u!1 &262835141
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,8 +654,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a0af10a7214931343a87c04dc5f84ec5, type: 2}
-  m_sharedMaterial: {fileID: 1672421084842811411, guid: a0af10a7214931343a87c04dc5f84ec5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fedecb5a7397ee42b9da4e068e31587, type: 2}
+  m_sharedMaterial: {fileID: 6027223994355616689, guid: 9fedecb5a7397ee42b9da4e068e31587, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1165,7 +1193,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1181445192}
         m_TargetAssemblyTypeName: Loader, Assembly-CSharp
-        m_MethodName: ToChannel
+        m_MethodName: Link
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1342,6 +1370,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739646301}
   m_CullTransparentMesh: 1
+--- !u!1 &769821068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769821070}
+  - component: {fileID: 769821069}
+  m_Layer: 0
+  m_Name: AudioMixer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &769821069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769821068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766bef852f0b1f24caa71c257caf74e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainAudioMixer: {fileID: 24100000, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
+--- !u!4 &769821070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769821068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &877429612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1821,7 +1894,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2740412204764289582, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4d000e3835620d84c86fc77b1422f0f8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9ec52f06346f29f4c80ecedefed18f86, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2647,5 +2720,6 @@ SceneRoots:
   - {fileID: 1181445193}
   - {fileID: 528474925}
   - {fileID: 95472527}
+  - {fileID: 769821070}
   - {fileID: 1276115686}
   - {fileID: 1614288851}
