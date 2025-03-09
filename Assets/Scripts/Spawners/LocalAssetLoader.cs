@@ -27,7 +27,7 @@ public static class LocalAssetLoader
         _cashedObject.Dequeue();
     }
 
-    public static void UnloadAlll()
+    public static void UnloadAll()
     {
         if (_cashedObject.Count() == 0)
             return;
@@ -43,7 +43,6 @@ public static class LocalAssetLoader
 
         _cashedObject.Clear();
     }
-
 
     public static Task<GameObject> LoadInternalSingle(AssetReference assetReference, Transform positionRoot)
     {
