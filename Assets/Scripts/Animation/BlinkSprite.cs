@@ -9,6 +9,9 @@ public class BlinkSprite : MonoBehaviour
 
     [Space(5)]
     [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
     private Color _colorBlink;
 
     [SerializeField]
@@ -18,16 +21,12 @@ public class BlinkSprite : MonoBehaviour
     [SerializeField]
     private int _numberLoop;
 
-    private SpriteRenderer _spriteRenderer;
-
     private Color _defaultColor;
 
     private Tween _tween;
 
     private void Start()
     {
-        _spriteRenderer ??= GetComponent<SpriteRenderer>();
-
         _defaultColor = _spriteRenderer.color;
 
         if (_playOnAwake == true)

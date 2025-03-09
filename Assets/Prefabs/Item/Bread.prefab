@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnAwake: 1
+  _spriteRenderer: {fileID: 9199383035683429206}
   _colorBlink: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   _duration: 0.75
   _numberLoop: -1

@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d29bd64ea157244e9409cf7c705df43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadingAsset: 0
+  _audioSource: {fileID: 0}
   _randomPitch: {x: 0.8, y: 1.2}
 --- !u!1 &8285832969877159795
 GameObject:
@@ -374,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnAwake: 1
+  _spriteRenderer: {fileID: 8285832969877159792}
   _colorBlink: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   _duration: 0.75
   _numberLoop: -1
