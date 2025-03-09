@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class SaverStartPosition : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
+    private bool _isStart = true;
+
+    [Space(10)]
+    [SerializeField]
     private Enums.Direction _direction;
 
     [SerializeField]
     private Vector3 _offset;
 
-    private Camera _mainCamera;
+    private Camera _mainCamera;//хз нужно или нет, просто мб использовать Camera.main
 
-    public Vector3 SavedPosition { get; private set; }
+    private void Start()
+    {
+        if (_isStart == true)
+            Set();
+    }
 
-    private void Start() 
-    {   
+    public void Set() 
+    {
         _mainCamera = Camera.main;
 
         Vector3 worldPoint;
@@ -28,7 +36,5 @@ public class SaverStartPosition : MonoBehaviour
             worldPoint = _mainCamera.ScreenToWorldPoint(new Vector2(0, Screen.height / 2));
         
         transform.position = worldPoint + _offset;
-
-        SavedPosition = transform.position;
     }
 }
