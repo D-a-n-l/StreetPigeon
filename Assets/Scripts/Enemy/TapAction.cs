@@ -11,7 +11,7 @@ public class TapAction : MonoBehaviour
 
     public UnityEvent OnComplete;
 
-    public void OnMouseDown()
+    private void OnMouseDown()
     {
         _currentCountTap++;
 
