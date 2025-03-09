@@ -23,21 +23,16 @@ public class MovingPlayer : MonoBehaviour
 
     private Vector3 _newRotation;
 
+    [Inject]
     private Energy _energy;
 
     public UnityEvent OnButtonDown;
 
     public UnityEvent OnButtonUp;
 
-    [Inject]
-    private void Construct(Energy energy)
-    {
-        _energy = energy;
-    }
-
     private void Start()
     {
-        _rigidbody2d ??= GetComponent<Rigidbody2D>();
+        _rigidbody2d = GetComponent<Rigidbody2D>();
 
         _currentSpeed = _speedFall;
 
