@@ -1,53 +1,65 @@
 using System.Collections;
 using UnityEngine;
-using Zenject;
 
-public class UpdateVelocityGame : MonoBehaviour
+public class UpdateVelocityGame
 {
-    [SerializeField]
-    [Min(1)]
     private int _increaseEvery = 150;
 
-    [Space(5)]
-    [SerializeField]
-    [Min(0.01f)]
     private float _howAddVelocity = 0.1f;
     
-    [Space(5)]
-    [SerializeField]
-    [Min(0)]
-    private float _defaultTimeScale = 1;
+    private float _baseTimeScale = 1;
 
-    [SerializeField]
-    [Min(0.01f)]
     private float _maxTimeScale = 2f;
-
-    private Score _score;
 
     private int _currentIncrease;
 
-    [Inject]
-    public void Construct(Score score)
+    private Score _score;
+
+    private WaitUntil _waitUntil;
+
+    private Coroutine _currentCoroutine;
+
+    public UpdateVelocityGame(int increaseEvery, float howAddVelocity, float baseTimeScale, float maxTimeScale, Score score)
     {
+        _increaseEvery = increaseEvery;
+
+        _howAddVelocity = howAddVelocity;
+
+        _baseTimeScale = baseTimeScale;
+
+        _maxTimeScale = maxTimeScale;
+
         _score = score;
+
+        _waitUntil = new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
+    }
+
+    public void Start()
+    {
+        _currentCoroutine = Coroutines.Start(StartCo());
+    }
+
+    public void Stop()
+    {
+        Coroutines.Stop(_currentCoroutine);
     }
 
     public void Reset()
     {
         _currentIncrease = _increaseEvery;
 
-        Time.timeScale = _defaultTimeScale;
+        Time.timeScale = _baseTimeScale;
     }
 
-    public IEnumerator Increase()
+    private IEnumerator StartCo()
     {
-        yield return new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
-    
+        yield return _waitUntil;
+
         _currentIncrease += _increaseEvery;
 
         Time.timeScale += _howAddVelocity;
 
         if (Time.timeScale < _maxTimeScale)
-            StartCoroutine(Increase());
+            Start();
     }
 }
