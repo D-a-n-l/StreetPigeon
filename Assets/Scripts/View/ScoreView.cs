@@ -10,13 +10,8 @@ public class ScoreView : MonoBehaviour
     [SerializeField]
     private TMP_Text _textHighScore;
 
-    private Score _score;
-
     [Inject]
-    public void Construct(Score score)
-    {
-        _score = score;
-    }
+    private Score _score;
 
     private void Awake()
     {

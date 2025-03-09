@@ -2,19 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class Score
 {
-    [SerializeField]
-    [Min(0.001f)]
+    public int CurrentScore { get; private set; } = 0;
+
+    public int HighScore { get; private set; }
+
     private float _timeUpdateScore = 0.5f;
-
-    private int _currentScore = 0;
-
-    public int CurrentScore => _currentScore;
-
-    private int _highScore;
-
-    public int HighScore => _highScore;
 
     private float _timeIncreaseScore;
 
@@ -22,13 +16,13 @@ public class Score : MonoBehaviour
 
     public Action OnUpdatedHighScore;
 
-    private void Start()
+    public void Start()
     {
-        _highScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
+        HighScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
 
         OnUpdatedHighScore?.Invoke();
 
-        StartCoroutine(UpdateScores());
+        Coroutines.Start(UpdateScores());
     }
 
     private IEnumerator UpdateScores()
@@ -43,13 +37,13 @@ public class Score : MonoBehaviour
 
             if (_timeIncreaseScore > _timeUpdateScore)
             {
-                _currentScore++;
+                CurrentScore++;
 
                 _timeIncreaseScore = 0;
 
-                if (_currentScore > _highScore)
+                if (CurrentScore > HighScore)
                 {
-                    _highScore = _currentScore;
+                    HighScore = CurrentScore;
 
                     OnUpdatedHighScore?.Invoke();
                }
@@ -57,10 +51,10 @@ public class Score : MonoBehaviour
         }
     }
 
-    public void Reset() => _currentScore = 0;
+    public void Reset() => CurrentScore = 0;
     
     public void SaveHighScore()//когда игрок умер
     {
-        MasterPlayerPrefs.SetInt(MasterPlayerPrefs.HIGH_SCORE, _highScore);
+        MasterPlayerPrefs.SetInt(MasterPlayerPrefs.HIGH_SCORE, HighScore);
     }
 }
