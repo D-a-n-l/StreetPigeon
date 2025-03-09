@@ -1,63 +1,74 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Zenject;
 
-public class LoopSpawnObject : MonoBehaviour
+public class LoopSpawnObject
 {
-    [SerializeField]
-    private SpawnerPreset _spawnerPreset;
+    private LoopSpawnConfig _config;
 
-    [Space]
-    [SerializeField]
-    [Min(0.001f)]
-    private float _timeSpawn = 5f;
+    private AssetReference[] _currentDifficulty;
 
-    [SerializeField]
-    [Min(0.001f)]
-    private float _timeDestroyObject = 5f;
+    private Score _score;
 
-    private AssetReference[] _currentDifficultyPrefabs;
+    private Transform _transform;
 
     private WaitForSeconds _waitSpawn;
 
     private WaitForSeconds _waitDestroy;
 
-    private Score _score;
+    private Coroutine _currentCoroutine;
 
-    [Inject]
-    public void Construct(Score score)
+    private Coroutine _pastCoroutine;
+
+    public LoopSpawnObject(LoopSpawnConfig config, Transform transform, Score score)
     {
+        _config = config;
+
+        _transform = transform;
+
+        _transform.SetPositionAndRotation(_config.Offset, Quaternion.identity);
+
         _score = score;
+
+        _waitSpawn = new WaitForSeconds(_config.TimeSpawn);
+
+        _waitDestroy = new WaitForSeconds(_config.TimeDestroyObject);
     }
 
-    public void Init()
+    public void Start()
     {
-        _waitSpawn = new WaitForSeconds(_timeSpawn);
-        
-        _waitDestroy = new WaitForSeconds(_timeDestroyObject);
+        _pastCoroutine = _currentCoroutine;
+
+        _currentCoroutine = Coroutines.Start(Spawn());
     }
 
-    public IEnumerator Load()
+    private IEnumerator Spawn()
     {
-        for(int i = 0; i < _spawnerPreset.difficulty.Length; i++)
+        for(int i = 0; i < _config.Difficulty.Difficulty.Length; i++)
         {
-            if(_score.CurrentScore >= _spawnerPreset.difficulty[i].spawnScore)
+            if(_score.CurrentScore >= _config.Difficulty.Difficulty[i].SpawnScore)
             {
-                _currentDifficultyPrefabs = _spawnerPreset.difficulty[i].prefabs;
+                _currentDifficulty = _config.Difficulty.Difficulty[i].Prefabs;
             }
         }
 
-        int randomPrefab = Random.Range(0, _currentDifficultyPrefabs.Length);
+        int randomPrefab = UnityEngine.Random.Range(0, _currentDifficulty.Length);
 
         yield return _waitSpawn;
 
-        LocalAssetLoader.LoadInternalPool(_currentDifficultyPrefabs[randomPrefab], transform);
-        
-        StartCoroutine(Load());
+        LocalAssetLoader.LoadInternalPool(_currentDifficulty[randomPrefab], _transform);
+
+        Start();
 
         yield return _waitDestroy;
-
+        Debug.Log("destroy");//hz vrode zarabotal Destroy
         LocalAssetLoader.UnloadInternalPool();
+    }
+
+    public void Stop()
+    {
+        Coroutines.Stop(_currentCoroutine);
+
+        Coroutines.Stop(_pastCoroutine);
     }
 }
