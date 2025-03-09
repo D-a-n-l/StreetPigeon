@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d02138caecca04ab61a9c0b2c3784f, type: 3}
+  m_Name: Loop Spawn
+  m_EditorClassIdentifier: 
+  <Difficulty>k__BackingField: {fileID: 11400000, guid: d9ed4db395dc57a4fbbd3caeb76542af, type: 2}
+  <TimeSpawn>k__BackingField: 5.5
+  <TimeDestroyObject>k__BackingField: 11
+  <Offset>k__BackingField: {x: 30, y: 0}
