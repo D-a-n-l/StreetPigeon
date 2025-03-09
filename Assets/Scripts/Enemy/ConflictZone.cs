@@ -46,7 +46,7 @@ public class ConflictZone : MonoBehaviour
     private Energy _energy;
 
     [Inject]
-    public void Initialize(Health health, Energy energy)
+    public void Construct(Health health, Energy energy)
     {
         _health = health;
 
@@ -55,7 +55,7 @@ public class ConflictZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {             
-        if (other.GetComponent<MovingPlayer>())
+        if (other.GetComponentInParent<MovingPlayer>() || other.GetComponent<MovingPlayer>())
         {
             if (_state.HasFlag(Enums.PlayerEvents.healthOnDecrease))
             {
