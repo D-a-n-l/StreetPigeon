@@ -1,55 +1,51 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField]
-    private SaverStartPosition _player;
+    private GameObject _player => _settableSkin.Current;
 
     [SerializeField]
     private GameObject _topDeadZone;
 
     [SerializeField]
-    private GameObject _buttonMove;
-
-    [Space(10)]
-    [SerializeField]
-    private float _timeSpawnPlayer = 4f;
-
-    [SerializeField]
-    private float _timeActiveButtonAndDeadZone = 3f;
-
-    private WaitForSeconds _waitTimeSpawnPlayer;
-
-    private WaitForSeconds _waitTimeButtonAndDeadZone;
+    private Canvas _buttonMove;
 
     private LoopSpawnObject _loopSpawnObject;
 
-    private Score _score;
-
     private UpdateVelocityGame _updateVelocityGame;
 
-    private AppearingText _appearingText;
+    private SettableSkin _settableSkin;
 
     private Health _health;
 
     private Energy _energy;
 
+    private Score _score;
+
+    private bool isFly = false;
+
     [Inject]
-    public void Construct(Health health, Energy energy, LoopSpawnObject loopSpawnObject, Score score, UpdateVelocityGame updateVelocityGame, AppearingText appearingText)
+    public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, LoopSpawnConfig loopSpawnConfig)
     {
-        _loopSpawnObject = loopSpawnObject;
+        _settableSkin = settableSkin;
 
         _score = score;
 
         _updateVelocityGame = updateVelocityGame;
 
-        _appearingText = appearingText;
-
         _health = health;
 
         _energy = energy;
+
+        _loopSpawnObject = new LoopSpawnObject(loopSpawnConfig, transform, _score);
+    }
+
+    public void SetFly()
+    {
+        isFly = true;
     }
 
     private void Awake()
@@ -57,60 +53,54 @@ public class Bootstrap : MonoBehaviour
         ActivateGameObjects(false);
     }
 
-    private void Start()
+    public void StartG()
     {
-        _waitTimeSpawnPlayer = new WaitForSeconds(_timeSpawnPlayer);
+        _player.transform.SetParent(null);
 
-        _waitTimeButtonAndDeadZone = new WaitForSeconds(_timeActiveButtonAndDeadZone);
+        if (isFly == true)
+            _player.GetComponent<SaverStartPosition>().Set();
 
-        _loopSpawnObject.Init();
-
-        StartCoroutine(StartGame());
+        StartGame();
     }
 
     private void ActivateGameObjects(bool value)
     {
-        _player.gameObject.SetActive(value);
-
         _topDeadZone.SetActive(value);
 
-        _buttonMove.SetActive(value);
+        _buttonMove.enabled = value;
     }
 
-    private IEnumerator StartGame()
+    private void StartGame()
     {
+        _player.GetComponent<MovingPlayer>().enabled = true;
+
         _updateVelocityGame.Reset();
 
-        StartCoroutine(_updateVelocityGame.Increase());
+        _updateVelocityGame.Start();
 
-        StartCoroutine(_appearingText.UpdateText());
+        _score.Start();
 
-        StartCoroutine(_loopSpawnObject.Load());
-
-        yield return _waitTimeSpawnPlayer;
-
-        _player.gameObject.SetActive(true);
-
-        yield return _waitTimeButtonAndDeadZone;
+        _loopSpawnObject.Start();
 
         _topDeadZone.SetActive(true);
 
-        _buttonMove.SetActive(true);
+        _buttonMove.enabled = true;
     }
 
     public void RestartGame()
     {
         _health.Increase(_health.Max);
+
         _energy.Increase(_energy.Max);
 
         ActivateGameObjects(false);
 
-        LocalAssetLoader.UnloadAlll();
+        LocalAssetLoader.UnloadAll();
 
         _score.Reset();
 
-        _player.transform.SetPositionAndRotation(_player.SavedPosition, Quaternion.identity);
+        //_player.Set();
 
-        StartCoroutine(StartGame());
+        StartGame();
     }
 }
