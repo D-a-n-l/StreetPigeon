@@ -1,13 +1,19 @@
 ﻿using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(TMP_Text))]
 public class TextTranslator : MonoBehaviour
 {
     public string key;
 
+    private TMP_Text tmpText;
+
     private void Start()
     {
         LangsList.langs.activatedTexts.Add(this);
+
+        tmpText = GetComponent<TMP_Text>();
+
         ReTranslate();
     }
 
@@ -18,8 +24,6 @@ public class TextTranslator : MonoBehaviour
 
     public void ReTranslate()
     {
-        TMP_Text tmpT = GetComponent<TMP_Text>();
-
-        tmpT.text = LangsList.GetWord(key);
+        tmpText.text = LangsList.GetWord(key);
     }
 }

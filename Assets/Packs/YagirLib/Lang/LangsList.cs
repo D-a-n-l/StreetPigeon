@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class WordKey : Word
 {
     public string key = "";
+
     public bool hide = true;
 }
 
@@ -14,9 +16,9 @@ public class WordKey : Word
 public class Word
 {
     public List<LangPhrase> phrases = new List<LangPhrase>();
+
     public Word()
     {
-
         try
         {
             for (int i = 0; i < LangsList.langs.translates.languages.Count; i++)
@@ -26,8 +28,10 @@ public class Word
         }
         catch (System.Exception)
         {
+
         }
     }
+
     public Word(WordKey wordKey)
     {
         for (int i = 0; i < wordKey.phrases.Count; i++)
@@ -41,6 +45,7 @@ public class Word
 public class LangPhrase
 {
     public string langName;
+
     public string phrase;
 }
 
@@ -71,10 +76,11 @@ public class LangsList : MonoBehaviour
     public static void SetLanguage(int id, bool retranslate)
     {
         currLang = id;
+
         foreach (var item in langs.activatedTexts)
         {
             item.ReTranslate();
-        } 
+        }
     }
 
     private void Awake()
@@ -82,10 +88,14 @@ public class LangsList : MonoBehaviour
         if (FindObjectsOfType<LangsList>().ToList().Find(x => x.gameObject != gameObject) != null)
         {
             Destroy(gameObject);
+
             return;
         }
+
         langs = this;
+
         dictionary = new Dictionary<string, Word>();
+
         if (translates != null)
         {
             for (int i = 0; i < translates.words.Count; i++)
@@ -104,7 +114,25 @@ public class LangsList : MonoBehaviour
         {
             print("Set Translation Asset!");
         }
-        //SetLanguage(1);
+
+        if (PlayerPrefs.HasKey(MasterPlayerPrefs.LANG) == true)
+            ChangeLanguage(MasterPlayerPrefs.GetInt(MasterPlayerPrefs.LANG, 0));
+        else
+        {
+            if (Application.systemLanguage == SystemLanguage.Russian || 
+                Application.systemLanguage == SystemLanguage.Ukrainian || 
+                Application.systemLanguage == SystemLanguage.Belarusian)
+                ChangeLanguage(0);
+            else
+                ChangeLanguage(1);
+        }
+    }
+
+    public static void ChangeLanguage(int value)
+    {
+        SetLanguage(value, true);
+
+        MasterPlayerPrefs.SetInt(MasterPlayerPrefs.LANG, value);
     }
 
     public static string GetWord(string key)
@@ -116,6 +144,7 @@ public class LangsList : MonoBehaviour
         catch (System.Exception)
         {
             Debug.LogError("YagirLib: Word \"" + key + "\" not found in list");
+
             return key;
         }
     }
