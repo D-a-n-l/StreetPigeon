@@ -10,6 +10,8 @@ public class MasterPlayerPrefs
 
     public const string VOLUME_UI = "SoundUIVolume";
 
+    public const string LANG = "LANG";
+
     public const string LEARNING_SCENE = "LearningScene";
 
     public static string SetKey(Enums.KeyPlayerPrefs key)
@@ -46,7 +48,7 @@ public class MasterPlayerPrefs
         return PlayerPrefs.GetInt(key, defaultValue);
     }
 
-    public static void ResetKet(string key)
+    public static void ResetKey(string key)
     {
         PlayerPrefs.DeleteKey(key);
     }
