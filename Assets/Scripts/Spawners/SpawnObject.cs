@@ -22,7 +22,7 @@ public class SpawnObject : MonoBehaviour
 
     public async void Spawn()
     {
-        var handle  = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
     }
@@ -31,7 +31,7 @@ public class SpawnObject : MonoBehaviour
     {
         EnableEvent.CallEnabled(true);
 
-        var handle  = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
     }
@@ -55,7 +55,7 @@ public class SpawnObject : MonoBehaviour
 
     public async void InitObject()
     {
-        var handle  = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
 
