@@ -51,18 +51,4 @@ public class PoolAssetLoader
 
         _cashedObjects.Clear();
     }
-
-    //public static Task<GameObject> LoadInternalSingle(AssetReference assetReference, Transform positionRoot)
-    //{
-    //    var handle = Addressables.InstantiateAsync(assetReference, positionRoot);
-
-    //    return handle.Task;
-    //}
-
-    //public static void UnloadInternalSingle(GameObject gameobject)
-    //{
-    //    gameobject.SetActive(false);
-
-    //    Addressables.ReleaseInstance(gameobject);
-    //}
 }

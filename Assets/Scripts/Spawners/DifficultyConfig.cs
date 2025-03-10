@@ -11,7 +11,7 @@ public class DifficultyConfig : ScriptableObject
 [System.Serializable]
 public struct DifficultyPreset
 {
-    public int SpawnScore;
+    public int Score;
 
     public AssetReference[] Prefabs;
 }

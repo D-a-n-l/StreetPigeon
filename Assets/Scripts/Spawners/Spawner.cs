@@ -48,7 +48,7 @@ public class Spawner
     {
         for(int i = 0; i < _config.Difficulty.Difficulty.Length; i++)
         {
-            if(_score.CurrentScore >= _config.Difficulty.Difficulty[i].SpawnScore)
+            if(_score.CurrentScore >= _config.Difficulty.Difficulty[i].Score)
             {
                 _currentDifficulty = _config.Difficulty.Difficulty[i].Prefabs;
             }
@@ -63,7 +63,7 @@ public class Spawner
         Start();
 
         yield return _waitDestroy;
-        //Debug.Log("destroy");//hz vrode zarabotal Destroy
+
         _loader.UnloadFirst();
     }
 
