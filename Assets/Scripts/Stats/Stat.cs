@@ -13,9 +13,9 @@ public class Stat
 
     public float Current { get; protected set; }
 
-    public Action OnDecrease;
+    public Action OnDecreased;
 
-    public Action OnIncrease;
+    public Action OnIncreased;
 
     public Action OnZeroing;
 }

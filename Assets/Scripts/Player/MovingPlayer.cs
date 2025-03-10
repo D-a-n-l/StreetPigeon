@@ -37,11 +37,18 @@ public class MovingPlayer : MonoBehaviour
         _currentSpeed = _speedFall;
 
         StartRotation();
+
+        _energy.OnZeroing += () => SwitchCurrentSpeed(-1);
     }
 
     private void OnEnable()
     {
         StartRotation();
+    }
+
+    private void OnDisable()
+    {
+        _energy.OnZeroing -= () => SwitchCurrentSpeed(-1);
     }
 
     private void FixedUpdate()

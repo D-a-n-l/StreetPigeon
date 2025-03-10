@@ -1,13 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
-public class Bar : MonoBehaviour
+public class Bar : SelectableStat
 {
-    [SerializeField]
-    private Enums.TypeStat _typeStat;
-
     [Space(10)]
     [SerializeField]
     [Min(0.001f)]
@@ -20,27 +16,16 @@ public class Bar : MonoBehaviour
     [SerializeField]
     private Image _barEffect;
 
-    private Stat _stat;
-
-    [Inject]
-    public void Construct(Health health, Energy energy)
-    {
-        if (_typeStat == Enums.TypeStat.Health)
-            _stat = health;
-        else if (_typeStat == Enums.TypeStat.Energy)
-            _stat = energy;
-    }
-
     private void Start()
     {
-        _stat.OnDecrease += Effect;
-        _stat.OnIncrease += Effect;
+        _stat.OnDecreased += Effect;
+        _stat.OnIncreased += Effect;
     }
 
     private void OnDisable()
     {
-        _stat.OnDecrease -= Effect;
-        _stat.OnIncrease -= Effect;
+        _stat.OnDecreased -= Effect;
+        _stat.OnIncreased -= Effect;
     }
 
     private void Effect() => StartCoroutine(EffectCo());

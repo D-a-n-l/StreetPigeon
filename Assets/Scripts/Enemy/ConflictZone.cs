@@ -3,7 +3,6 @@ using NaughtyAttributes;
 using UnityEngine.Events;
 using Zenject;
 
-[RequireComponent(typeof(InjectObject))]
 public class ConflictZone : MonoBehaviour
 {
     [SerializeField]

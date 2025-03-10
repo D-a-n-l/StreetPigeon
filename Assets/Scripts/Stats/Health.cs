@@ -11,7 +11,7 @@ public class Health : Stat, IDecrease, IIncrease
 
         Current -= value;
 
-        OnDecrease.Invoke();
+        OnDecreased.Invoke();
 
         if (Current <= 0)
         {
@@ -31,6 +31,6 @@ public class Health : Stat, IDecrease, IIncrease
         if (Current >= Max)
             Current = Max;
 
-        OnIncrease.Invoke();
+        OnIncreased.Invoke();
     }
 }

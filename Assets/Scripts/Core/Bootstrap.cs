@@ -51,6 +51,17 @@ public class Bootstrap : MonoBehaviour
     private void Awake()
     {
         ActivateGameObjects(false);
+
+        _health.OnZeroing += _updateVelocityGame.Stop;
+
+        _health.OnZeroing += _updateVelocityGame.Reset;
+    }
+
+    private void OnDisable()
+    {
+        _health.OnZeroing -= _updateVelocityGame.Stop;
+
+        _health.OnZeroing -= _updateVelocityGame.Reset;
     }
 
     public void StartG()

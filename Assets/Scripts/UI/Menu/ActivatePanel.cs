@@ -1,17 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Canvas))]
 public class ActivatePanel : MonoBehaviour
 {
     [SerializeField]
+    private Canvas _canvas;
+
+    [SerializeField]
     private bool _isEvent = false;
 
-    private Canvas _canvas;
-    
     private void Start()
     {
-        _canvas ??= GetComponent<Canvas>();
-
         if (_isEvent == true)
             EnableEvent.Enabled.AddListener(EnableValue);
     }
