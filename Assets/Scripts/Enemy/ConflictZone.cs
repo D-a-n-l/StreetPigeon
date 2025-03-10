@@ -88,9 +88,9 @@ public class ConflictZone : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<MovingPlayer>() && _isDestroyObject == true)
+        if ((other.GetComponentInParent<MovingPlayer>() || other.GetComponent<MovingPlayer>()) && _isDestroyObject == true)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
