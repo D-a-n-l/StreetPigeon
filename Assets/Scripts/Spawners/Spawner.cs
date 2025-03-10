@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public class LoopSpawnObject
+public class Spawner
 {
-    private LoopSpawnConfig _config;
+    private SpawnerConfig _config;
 
     private AssetReference[] _currentDifficulty;
 
@@ -20,7 +20,9 @@ public class LoopSpawnObject
 
     private Coroutine _pastCoroutine;
 
-    public LoopSpawnObject(LoopSpawnConfig config, Transform transform, Score score)
+    private PoolAssetLoader _loader = new PoolAssetLoader();
+
+    public Spawner(SpawnerConfig config, Transform transform, Score score)
     {
         _config = config;
 
@@ -56,13 +58,13 @@ public class LoopSpawnObject
 
         yield return _waitSpawn;
 
-        LocalAssetLoader.LoadInternalPool(_currentDifficulty[randomPrefab], _transform);
+        _loader.LoadWithInject(_currentDifficulty[randomPrefab], _transform);
 
         Start();
 
         yield return _waitDestroy;
-        Debug.Log("destroy");//hz vrode zarabotal Destroy
-        LocalAssetLoader.UnloadInternalPool();
+        //Debug.Log("destroy");//hz vrode zarabotal Destroy
+        _loader.UnloadFirst();
     }
 
     public void Stop()
@@ -70,5 +72,10 @@ public class LoopSpawnObject
         Coroutines.Stop(_currentCoroutine);
 
         Coroutines.Stop(_pastCoroutine);
+    }
+
+    public void UnloadAll()
+    {
+        _loader.UnloadAll();
     }
 }

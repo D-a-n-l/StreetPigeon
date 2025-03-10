@@ -4,10 +4,10 @@ using Zenject;
 public class SpawnConfigInstaller : MonoInstaller
 {
     [SerializeField]
-    private LoopSpawnConfig _config;
+    private SpawnerConfig _config;
 
     public override void InstallBindings()
     {
-        Container.Bind<LoopSpawnConfig>().FromInstance(_config);
+        Container.Bind<SpawnerConfig>().FromInstance(_config);
     }
 }

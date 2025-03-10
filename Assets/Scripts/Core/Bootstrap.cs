@@ -13,7 +13,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField]
     private Canvas _buttonMove;
 
-    private LoopSpawnObject _loopSpawnObject;
+    private Spawner _spawner;
 
     private UpdateVelocityGame _updateVelocityGame;
 
@@ -28,7 +28,7 @@ public class Bootstrap : MonoBehaviour
     private bool isFly = false;
 
     [Inject]
-    public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, LoopSpawnConfig loopSpawnConfig)
+    public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
     {
         _settableSkin = settableSkin;
 
@@ -40,7 +40,7 @@ public class Bootstrap : MonoBehaviour
 
         _energy = energy;
 
-        _loopSpawnObject = new LoopSpawnObject(loopSpawnConfig, transform, _score);
+        _spawner = new Spawner(spawnerConfig, transform, _score);
     }
 
     public void SetFly()
@@ -52,6 +52,8 @@ public class Bootstrap : MonoBehaviour
     {
         ActivateGameObjects(false);
 
+        _health.OnZeroing += _spawner.Stop;
+
         _health.OnZeroing += _updateVelocityGame.Stop;
 
         _health.OnZeroing += _updateVelocityGame.Reset;
@@ -59,6 +61,8 @@ public class Bootstrap : MonoBehaviour
 
     private void OnDisable()
     {
+        _health.OnZeroing -= _spawner.Stop;
+
         _health.OnZeroing -= _updateVelocityGame.Stop;
 
         _health.OnZeroing -= _updateVelocityGame.Reset;
@@ -91,7 +95,7 @@ public class Bootstrap : MonoBehaviour
 
         _score.Start();
 
-        _loopSpawnObject.Start();
+        _spawner.Start();
 
         _topDeadZone.SetActive(true);
 
@@ -106,7 +110,9 @@ public class Bootstrap : MonoBehaviour
 
         ActivateGameObjects(false);
 
-        LocalAssetLoader.UnloadAll();
+        //PoolAssetLoader.UnloadAll();
+
+        _spawner.UnloadAll();
 
         _score.Reset();
 

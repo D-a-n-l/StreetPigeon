@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d02138caecca04ab61a9c0b2c3784f, type: 3}
+  m_Script: {fileID: 11500000, guid: 571b88318a1124946a841b538772a116, type: 3}
   m_Name: Loop Spawn
   m_EditorClassIdentifier: 
   <Difficulty>k__BackingField: {fileID: 11400000, guid: d9ed4db395dc57a4fbbd3caeb76542af, type: 2}

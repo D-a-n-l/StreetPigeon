@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4854590095418630849}
   - component: {fileID: 3501141941235203453}
   - component: {fileID: 567028883420106579}
-  - component: {fileID: 6675435452118048160}
   m_Layer: 0
   m_Name: Pigeon
   m_TagString: Player
@@ -137,18 +136,6 @@ MonoBehaviour:
   _isStart: 0
   _direction: 0
   _offset: {x: -10, y: 4, z: 10}
---- !u!114 &6675435452118048160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293347457801868662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2bef717293ba74cac8474bbeeee886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7009398971072793146
 GameObject:
   m_ObjectHideFlags: 0

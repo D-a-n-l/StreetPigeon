@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Loop Spawn", menuName = "Configs/Loop Spawn")]
-public class LoopSpawnConfig : ScriptableObject
+[CreateAssetMenu(fileName = "Spawner Config", menuName = "Configs/Spawner Config")]
+public class SpawnerConfig : ScriptableObject
 {
     [field: SerializeField]
     public DifficultyConfig Difficulty { get; private set; }

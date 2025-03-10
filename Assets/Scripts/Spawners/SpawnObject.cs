@@ -14,6 +14,8 @@ public class SpawnObject : MonoBehaviour
 
     private GameObject _cashedObject = null;
 
+    private SingleAssetLoader _loader = new SingleAssetLoader();
+
     private void Awake()
     {
         if (_isInit == true)
@@ -22,7 +24,7 @@ public class SpawnObject : MonoBehaviour
 
     public async void Spawn()
     {
-        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = _loader.Load(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
     }
@@ -31,31 +33,31 @@ public class SpawnObject : MonoBehaviour
     {
         EnableEvent.CallEnabled(true);
 
-        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = _loader.Load(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
     }
 
     public void Despawn()
     {
-        LocalAssetLoader.UnloadInternalSingle(_cashedObject);
+        _loader.Unload();
     }
 
     public void DespawnSingle(GameObject gameobject)
     {
-        LocalAssetLoader.UnloadInternalSingle(gameobject);
+        _loader.Unload();
     }
 
     public void DespawnSingleWithEvent(GameObject gameobject)
     {
         EnableEvent.CallEnabled(false);
 
-        LocalAssetLoader.UnloadInternalSingle(gameobject);
+        _loader.Unload();
     }
 
     public async void InitObject()
     {
-        var handle = LocalAssetLoader.LoadInternalSingle(_assetReference, _positionRoot);
+        var handle = _loader.Load(_assetReference, _positionRoot);
 
         _cashedObject = await handle;
 

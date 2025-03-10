@@ -2187,6 +2187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ab8f656aa031445876e2dc371c286c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxEnergy: 100
 --- !u!114 &1081767589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,7 +2289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb5aa1439182c342a0aa402d461d5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: ad22b2454d1222c448e3d13450b3b59e, type: 2}
+  _config: {fileID: 11400000, guid: a2a8738c32b3a47499e1323134c7c43f, type: 2}
 --- !u!1 &1103424191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4316866866578042743, guid: 79787ae841b5de04d84772f512840c55, type: 3}

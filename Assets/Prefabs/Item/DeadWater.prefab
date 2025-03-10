@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 7819035194252897052}
   - component: {fileID: 2327436731009665893}
   - component: {fileID: 4292929226891892423}
-  - component: {fileID: 1778823774050101468}
   m_Layer: 0
   m_Name: DeadWater
   m_TagString: Untagged
@@ -396,15 +395,3 @@ MonoBehaviour:
   _newScale: {x: 1.05, y: 1.05, z: 1.05}
   _duration: 1
   _numberLoop: -1
---- !u!114 &1778823774050101468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6721619909086202631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2bef717293ba74cac8474bbeeee886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -10,6 +10,8 @@ public class SettableSkin : MonoBehaviour
     [SerializeField]
     private string _baseSkin;
 
+    private SingleAssetLoader _loader = new SingleAssetLoader();
+
     [Inject]
     private Skins _skins;
 
@@ -26,12 +28,12 @@ public class SettableSkin : MonoBehaviour
     {
         if (Current != null)
         {
-            LocalAssetLoader.UnloadInternalSingle(Current);
+            _loader.Unload();
 
             Current = null;
         }
 
-        var handle = LocalAssetLoader.LoadInternalSingle(_skins.List[name].Prefab, _root);
+        var handle = _loader.LoadWithInject(_skins.List[name].Prefab, _root);
 
         Current = await handle;
 
