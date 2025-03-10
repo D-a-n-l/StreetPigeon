@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class Bar : MonoBehaviour
 {
     [SerializeField]
-    private Stat _stat;
+    private Enums.TypeStat _typeStat;
 
-    [Space(5)]
+    [Space(10)]
     [SerializeField]
     [Min(0.001f)]
     private float _speedEffect = 0.003f;
@@ -19,13 +20,32 @@ public class Bar : MonoBehaviour
     [SerializeField]
     private Image _barEffect;
 
-    private void Start()
+    private Stat _stat;
+
+    [Inject]
+    public void Construct(Health health, Energy energy)
     {
-        _stat.OnDecrease.AddListener(()=> StartCoroutine(Effect()));
-        _stat.OnIncrease.AddListener(()=> StartCoroutine(Effect()));
+        if (_typeStat == Enums.TypeStat.Health)
+            _stat = health;
+        else if (_typeStat == Enums.TypeStat.Energy)
+            _stat = energy;
     }
 
-    private IEnumerator Effect()
+    private void Start()
+    {
+        _stat.OnDecrease += Effect;
+        _stat.OnIncrease += Effect;
+    }
+
+    private void OnDisable()
+    {
+        _stat.OnDecrease -= Effect;
+        _stat.OnIncrease -= Effect;
+    }
+
+    private void Effect() => StartCoroutine(EffectCo());
+
+    private IEnumerator EffectCo()
     {
         _bar.fillAmount = _stat.Current / _stat.Max;
 

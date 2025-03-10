@@ -1,17 +1,21 @@
 public class Health : Stat, IDecrease, IIncrease
 {
+    public Health(float max) : base(max)
+    {
+    }
+
     public void Decrease(float value)
     {
         if (value < 0)
             return;
 
-        _current -= value;
+        Current -= value;
 
         OnDecrease.Invoke();
 
-        if (_current <= 0)
+        if (Current <= 0)
         {
-            _current = 0;
+            Current = 0;
 
             OnZeroing.Invoke();
         }
@@ -22,10 +26,10 @@ public class Health : Stat, IDecrease, IIncrease
         if (value < 0)
             return;
 
-        _current += value;
+        Current += value;
 
-        if (_current >= _max)
-            _current = _max;
+        if (Current >= Max)
+            Current = Max;
 
         OnIncrease.Invoke();
     }

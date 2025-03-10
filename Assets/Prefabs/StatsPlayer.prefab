@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 8931471931785375734}
   - component: {fileID: 6246337834420460457}
   - component: {fileID: 1989274916652876197}
-  - component: {fileID: 1309302132838594853}
   - component: {fileID: 1318662987582198597}
   m_Layer: 5
   m_Name: Health
@@ -154,124 +153,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1309302132838594853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2421254986532579932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 174abf238c0922c43b6a3b3cd8eda415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _max: 100
-  OnDecrease:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraShake, Assembly-CSharp
-        m_MethodName: ToShake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BlinkSprite, Assembly-CSharp
-        m_MethodName: Blink
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnIncrease:
-    m_PersistentCalls:
-      m_Calls: []
-  OnZeroing:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ActivatePanel, Assembly-CSharp
-        m_MethodName: Enable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: StopAllCoroutines
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Score, Assembly-CSharp
-        m_MethodName: SaveHighScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DOMovePosition, Assembly-CSharp
-        m_MethodName: LocalMove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DOMovePosition, Assembly-CSharp
-        m_MethodName: LocalMove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1318662987582198597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272e579e28ea2f74a8b68dd137b9997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: {fileID: 1309302132838594853}
+  _typeStat: 0
   _speedEffect: 0.003
   _bar: {fileID: 668946408911025267}
   _barEffect: {fileID: 1123124932411245189}
@@ -299,7 +180,6 @@ GameObject:
   - component: {fileID: 2137155852472440198}
   - component: {fileID: 3935360577492515719}
   - component: {fileID: 2083925452901652822}
-  - component: {fileID: 6446847788965223682}
   - component: {fileID: 9104694274435820032}
   m_Layer: 5
   m_Name: Energy
@@ -367,40 +247,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6446847788965223682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4239734664320015343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4707a67f046741f43aaaf3d8834e49e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _max: 100
-  OnDecrease:
-    m_PersistentCalls:
-      m_Calls: []
-  OnIncrease:
-    m_PersistentCalls:
-      m_Calls: []
-  OnZeroing:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MovingPlayer, Assembly-CSharp
-        m_MethodName: SwitchCurrentSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: -1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &9104694274435820032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272e579e28ea2f74a8b68dd137b9997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stat: {fileID: 6446847788965223682}
+  _typeStat: 0
   _speedEffect: 0.003
   _bar: {fileID: 2773080819269535546}
   _barEffect: {fileID: 5656727455453614289}

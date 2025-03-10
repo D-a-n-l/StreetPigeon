@@ -1,23 +1,21 @@
-using UnityEngine;
-using UnityEngine.Events;
+using System;
 
-public abstract class Stat : MonoBehaviour
+public class Stat
 {
-    [SerializeField]
-    [Min(0.001f)]
-    protected float _max;
+    public Stat(float max)
+    {
+        Max = max;
 
-    public float Max => _max;
+        Current = Max;
+    }
 
-    protected float _current;
+    public float Max { get; protected set; }
 
-    public float Current => _current;
+    public float Current { get; protected set; }
 
-    public UnityEvent OnDecrease;
+    public Action OnDecrease;
 
-    public UnityEvent OnIncrease;
+    public Action OnIncrease;
 
-    public UnityEvent OnZeroing;
-
-    public void Start() => _current = _max;
+    public Action OnZeroing;
 }

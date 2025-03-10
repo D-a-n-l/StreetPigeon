@@ -1,5 +1,9 @@
 public class Energy : Stat, IDecrease, IIncrease
 {
+    public Energy(float max) : base(max)
+    {
+    }
+
     private bool _isPressed = false;
 
     public void OnPressed(bool value) => _isPressed = value;
@@ -11,13 +15,13 @@ public class Energy : Stat, IDecrease, IIncrease
             if (value < 0)
                 return;
 
-            _current -= value;
+            Current -= value;
 
             OnDecrease.Invoke();
 
-            if (_current <= 0)
+            if (Current <= 0)
             {
-                _current = 0;
+                Current = 0;
 
                 OnZeroing.Invoke();
             }
@@ -29,10 +33,10 @@ public class Energy : Stat, IDecrease, IIncrease
         if (value < 0)
             return;
 
-        _current += value;
+        Current += value;
 
-        if (_current >= _max)
-            _current = _max;
+        if (Current >= Max)
+            Current = Max;
 
         OnIncrease.Invoke();
     }
