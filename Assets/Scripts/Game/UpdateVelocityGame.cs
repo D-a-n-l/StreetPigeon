@@ -31,14 +31,11 @@ public class UpdateVelocityGame
 
         _score = score;
 
-        //_waitUntil = new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
+        _waitUntil = new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
     }
 
     public void Start()
     {
-
-        //_waitUntil = new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
-
         _currentCoroutine = Coroutines.Start(StartCo());
     }
 
@@ -56,7 +53,7 @@ public class UpdateVelocityGame
 
     private IEnumerator StartCo()
     {
-        yield return new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
+        yield return _waitUntil;
 
         _currentIncrease += _increaseEvery;
 

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class Bar : SelectableStat
 {
     [Space(10)]
-    [SerializeField]
     [Min(0.001f)]
+    [SerializeField]
     private float _speedEffect = 0.003f;
 
     [Space(10)]
@@ -18,14 +18,14 @@ public class Bar : SelectableStat
 
     private void Start()
     {
-        _stat.OnDecreased += Effect;
         _stat.OnIncreased += Effect;
+        _stat.OnDecreased += Effect;
     }
 
     private void OnDisable()
     {
-        _stat.OnDecreased -= Effect;
         _stat.OnIncreased -= Effect;
+        _stat.OnDecreased -= Effect;
     }
 
     private void Effect() => StartCoroutine(EffectCo());

@@ -20,8 +20,6 @@ public class Score
 
     public void Start()
     {
-        Debug.Log("Score " + CurrentScore);
-
         HighScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
 
         OnUpdatedHighScore?.Invoke();
