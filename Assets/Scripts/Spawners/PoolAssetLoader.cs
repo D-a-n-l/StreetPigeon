@@ -37,10 +37,10 @@ public class PoolAssetLoader
 
     public void UnloadAll()
     {
-        if (_cashedObjects.Count() == 0)
+        if (_cashedObjects.Count == 0)
             return;
 
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < _cashedObjects.Count; i++)
         {
             _cashedObjects.First().SetActive(false);
             
