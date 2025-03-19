@@ -15,7 +15,5 @@ public class PausePanel : MonoBehaviour
     public void OnClosed()
     {
         Time.timeScale = _currentTimeScale;
-
-        Debug.Log("Pause " + Time.timeScale);
     }
 }

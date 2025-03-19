@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class UpdateVelocityGame
+public class RefrashableTimeScaleFromScore
 {
     private int _increaseEvery = 150;
 
@@ -19,7 +19,7 @@ public class UpdateVelocityGame
 
     private Coroutine _currentCoroutine;
 
-    public UpdateVelocityGame(int increaseEvery, float howAddVelocity, float baseTimeScale, float maxTimeScale, Score score)
+    public RefrashableTimeScaleFromScore(int increaseEvery, float howAddVelocity, float baseTimeScale, float maxTimeScale, Score score)
     {
         _increaseEvery = increaseEvery;
 

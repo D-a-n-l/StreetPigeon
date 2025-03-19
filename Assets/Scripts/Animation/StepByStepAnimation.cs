@@ -17,10 +17,6 @@ public class StepByStepAnimation : MonoBehaviour
     [HideIf(nameof(_events), Enums.EventsStepAnimation.Invoker)]
     private string _keySubscriber;
 
-    //[SerializeField]
-    //[ShowIf(nameof(_events), Enums.EventsStepAnimation.Invoker)]
-    //private string _keyInvoker;
-
     [Space(10)]
     [SerializeField]
     private UpdateType _updateType = UpdateType.Normal;
@@ -84,7 +80,6 @@ public class StepByStepAnimation : MonoBehaviour
 
     public void StartStepWithEvent(bool startStep)
     {
-        //ждем выполнение корутины до конца
         StartCoroutine(StartStepWithEventCoroutine(startStep));
     }
 
@@ -97,7 +92,6 @@ public class StepByStepAnimation : MonoBehaviour
 
     public void StartStepWithoutEvent(bool startStep)
     {
-        //ждем выполнение корутины до конца
         StartCoroutine(StartStepWithoutEventCoroutine(startStep));
     }
 
@@ -116,8 +110,6 @@ public class StepByStepAnimation : MonoBehaviour
             {
                 if (_keySubscriber != StepAnimationEvents.CurrentKey)
                 {
-                    //print(_keySubscriber);
-                    //print(StepAnimationEvents.CurrentKey);
                     yield break;
                 }
             }
@@ -146,7 +138,6 @@ public class StepByStepAnimation : MonoBehaviour
             {
                 StepAnimationEvents.SetKey(preset[i].KeyStarted);
                 StepAnimationEvents.Invoke(preset[i].StepStarted);
-                //StepAnimationEvents.Invoke(!startStep);
             }
 
             yield return new WaitForCompletion(preset[i].RectTransform.DOAnchorPos(preset[i].Position, preset[i].Duration).SetEase(preset[i].Ease).SetUpdate(_updateType, _isIndependentUpdate));
@@ -157,7 +148,6 @@ public class StepByStepAnimation : MonoBehaviour
             {
                 StepAnimationEvents.SetKey(preset[i].KeyCompleted);
                 StepAnimationEvents.Invoke(preset[i].StepCompleted);
-                //StepAnimationEvents.Invoke(!startStep);
             }
         }
     }

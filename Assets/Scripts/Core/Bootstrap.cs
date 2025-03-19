@@ -16,7 +16,7 @@ public class Bootstrap : MonoBehaviour
 
     private Spawner _spawner;
 
-    private UpdateVelocityGame _updateVelocityGame;
+    private RefrashableTimeScaleFromScore _updateVelocityGame;
 
     private SettableSkin _settableSkin;
 
@@ -31,7 +31,7 @@ public class Bootstrap : MonoBehaviour
     private bool _isFly = false;
 
     [Inject]
-    public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
+    public void Construct(Health health, Energy energy, Score score, RefrashableTimeScaleFromScore updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
     {
         _settableSkin = settableSkin;
 
@@ -67,6 +67,8 @@ public class Bootstrap : MonoBehaviour
         _health.OnZeroing += _updateVelocityGame.Reset;
 
         _health.OnZeroing += _score.Reset;
+
+        _health.OnZeroing += OffPLayer;
     }
 
     private void OnDisable()
@@ -78,6 +80,13 @@ public class Bootstrap : MonoBehaviour
         _health.OnZeroing -= _updateVelocityGame.Reset;
 
         _health.OnZeroing -= _score.Reset;
+
+        _health.OnZeroing -= OffPLayer;
+    }
+
+    private void OffPLayer()
+    {
+        _player.GetComponent<MovingPlayer>().enabled = false;
     }
 
     public void StartG()

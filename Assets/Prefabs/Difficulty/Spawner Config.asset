@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Difficulty>k__BackingField: {fileID: 11400000, guid: d9ed4db395dc57a4fbbd3caeb76542af, type: 2}
   <TimeSpawn>k__BackingField: 5.5
-  <TimeDestroyObject>k__BackingField: 5.5
+  <TimeDestroyObject>k__BackingField: 11
   <Offset>k__BackingField: {x: 20, y: 0}

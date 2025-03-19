@@ -6,7 +6,7 @@ public class Score
 {
     public int CurrentScore { get; private set; } = 0;
 
-    public int HighScore { get; private set; }
+    public int HighScore { get; private set; } = 0;
 
     private float _timeUpdateScore = 0.5f;
 
@@ -62,7 +62,7 @@ public class Score
         OnUpdated?.Invoke();
     }
 
-    public void SaveHighScore()//когда игрок умер
+    public void SaveHighScore()
     {
         MasterPlayerPrefs.SetInt(MasterPlayerPrefs.HIGH_SCORE, HighScore);
     }

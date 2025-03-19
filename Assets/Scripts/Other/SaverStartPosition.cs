@@ -12,7 +12,7 @@ public class SaverStartPosition : MonoBehaviour
     [SerializeField]
     private Vector3 _offset;
 
-    private Camera _mainCamera;//хз нужно или нет, просто мб использовать Camera.main
+    private Camera _mainCamera;
 
     private void Start()
     {
