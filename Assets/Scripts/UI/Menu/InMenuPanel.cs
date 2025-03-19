@@ -14,13 +14,11 @@ public class InMenuPanel : MonoBehaviour
     {
         if (GameState.State == true && _isPressed == true)
         {
-            _bootstrap.pigANim.StartStepWithEvent(true);
+            _bootstrap.ButtonStart.StartStepWithEvent(true);
 
-            _bootstrap.SpawbGolube();
+            _bootstrap.InMenu();
 
             GameState.Set(false);
         }
-
-        Debug.Log("Menu Panel " + Time.timeScale);
     }
 }

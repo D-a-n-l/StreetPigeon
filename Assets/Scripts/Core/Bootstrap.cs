@@ -5,7 +5,8 @@ using Zenject;
 
 public class Bootstrap : MonoBehaviour
 {
-    private GameObject _player => _settableSkin.Current;
+    [field: SerializeField]
+    public StepByStepAnimation ButtonStart { get; private set; }
 
     [SerializeField]
     private GameObject _deadZone;
@@ -24,8 +25,10 @@ public class Bootstrap : MonoBehaviour
     private Energy _energy;
 
     private Score _score;
-    public StepByStepAnimation pigANim;
-    public bool IsFly { get; private set; } = false;
+
+    private GameObject _player => _settableSkin.Current;
+
+    private bool _isFly = false;
 
     [Inject]
     public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
@@ -45,7 +48,7 @@ public class Bootstrap : MonoBehaviour
 
     public void SetFly(bool value)
     {
-        IsFly = value;
+        _isFly = value;
     }
 
     public void SetGame(bool value)
@@ -62,6 +65,8 @@ public class Bootstrap : MonoBehaviour
         _health.OnZeroing += _updateVelocityGame.Stop;
 
         _health.OnZeroing += _updateVelocityGame.Reset;
+
+        _health.OnZeroing += _score.Reset;
     }
 
     private void OnDisable()
@@ -71,13 +76,15 @@ public class Bootstrap : MonoBehaviour
         _health.OnZeroing -= _updateVelocityGame.Stop;
 
         _health.OnZeroing -= _updateVelocityGame.Reset;
+
+        _health.OnZeroing -= _score.Reset;
     }
 
     public void StartG()
     {
         _player.transform.SetParent(null);
 
-        if (IsFly == true)
+        if (_isFly == true)
             _player.GetComponent<SaverStartPosition>().Set();
 
         StartGame();
@@ -90,7 +97,7 @@ public class Bootstrap : MonoBehaviour
         _buttonMove.enabled = value;
     }
 
-    public void SpawbGolube()
+    public void InMenu()
     {
         _spawner.Stop();
 
@@ -113,7 +120,9 @@ public class Bootstrap : MonoBehaviour
     {
         _player.GetComponent<MovingPlayer>().enabled = true;
 
-        _updateVelocityGame.Reset();
+        _health.Increase(_health.Max);
+
+        _energy.Increase(_energy.Max);
 
         _updateVelocityGame.Start();
 
@@ -124,25 +133,15 @@ public class Bootstrap : MonoBehaviour
         _deadZone.SetActive(true);
 
         _buttonMove.enabled = true;
-
-        Debug.Log("Bootstrap " + Time.timeScale);
     }
 
     public void RestartGame()
     {
-        _health.Increase(_health.Max);
-
-        _energy.Increase(_energy.Max);
-
         ActivateGameObjects(false);
-
-        //PoolAssetLoader.UnloadAll();
 
         _spawner.UnloadAll();
 
-        _score.Reset();
-
-        //_player.Set();
+        _player.GetComponent<SaverStartPosition>().Set();
 
         StartGame();
     }
