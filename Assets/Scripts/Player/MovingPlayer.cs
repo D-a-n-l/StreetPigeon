@@ -53,7 +53,7 @@ public class MovingPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody2d.velocity = Vector2.up * _currentSpeed;
+        _rigidbody2d.linearVelocity = Vector2.up * _currentSpeed;
     }
 
     public void OnPressed(bool value) => _isPressed = value;

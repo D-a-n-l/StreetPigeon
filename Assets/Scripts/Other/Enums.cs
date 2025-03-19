@@ -63,4 +63,19 @@ public static class Enums
         energyOnIncrease = 1 << 4,
         energyOnZeroing = 1 << 5,
     }
+
+    public enum BaseStepAnimation
+    {
+        Start,
+        End,
+        None
+    }
+
+    public enum EventsStepAnimation
+    {
+        Subscriber,
+        Invoker,
+        SubscriberInvoker,
+        None
+    }
 }

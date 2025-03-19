@@ -78,6 +78,8 @@ public class DOMovePosition : MonoBehaviour
 
     private void OnDestroy()
     {
-        _tween.Kill();
+        Stop();
     }
+
+    public void Stop() => _tween.Kill();
 }

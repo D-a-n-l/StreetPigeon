@@ -12,17 +12,21 @@ public class Score
 
     private float _timeIncreaseScore;
 
+    private Coroutine _currentCoroutine;
+
     public Action OnUpdated;
 
     public Action OnUpdatedHighScore;
 
     public void Start()
     {
+        Debug.Log("Score " + CurrentScore);
+
         HighScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
 
         OnUpdatedHighScore?.Invoke();
 
-        Coroutines.Start(UpdateScores());
+        _currentCoroutine = Coroutines.Start(UpdateScores());
     }
 
     private IEnumerator UpdateScores()
@@ -51,8 +55,15 @@ public class Score
         }
     }
 
-    public void Reset() => CurrentScore = 0;
-    
+    public void Reset()
+    {
+        CurrentScore = 0;
+
+        Coroutines.Stop(_currentCoroutine);
+
+        OnUpdated?.Invoke();
+    }
+
     public void SaveHighScore()//когда игрок умер
     {
         MasterPlayerPrefs.SetInt(MasterPlayerPrefs.HIGH_SCORE, HighScore);

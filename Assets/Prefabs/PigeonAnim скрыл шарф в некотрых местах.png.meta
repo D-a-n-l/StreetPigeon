@@ -1,0 +1,408 @@
+fileFormatVersion: 2
+guid: 3a4e17929b913184e8e905b8369cf494
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1885475492616538442
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_0"
+  - first:
+      213: -5012396068032618594
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_1"
+  - first:
+      213: -3712235849124966310
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_2"
+  - first:
+      213: -820040702383991170
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_3"
+  - first:
+      213: -270824280603195315
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_4"
+  - first:
+      213: -2115747921171400131
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_5"
+  - first:
+      213: 2632013852924340134
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_6"
+  - first:
+      213: -2149280385595563439
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_7"
+  - first:
+      213: 3620869636993799946
+    second: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+      \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_8"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 85
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_0"
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 72
+        width: 201
+        height: 172
+      alignment: 9
+      pivot: {x: 0.9168448, y: 0.36409885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a490d1a88fd8a2a10800000000000000
+      internalID: 1885475492616538442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_1"
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 66
+        width: 202
+        height: 190
+      alignment: 9
+      pivot: {x: 0.91478115, y: 0.33223677}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fd95b3554607ab0800000000000000
+      internalID: -5012396068032618594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_2"
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 81
+        width: 202
+        height: 164
+      alignment: 9
+      pivot: {x: 0.9222953, y: 0.3815331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a509f6ad92d7b7cc0800000000000000
+      internalID: -3712235849124966310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_3"
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 78
+        width: 216
+        height: 96
+      alignment: 9
+      pivot: {x: 0.8583835, y: 0.6644349}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e765a017351ae94f0800000000000000
+      internalID: -820040702383991170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_4"
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 29
+        width: 219
+        height: 143
+      alignment: 9
+      pivot: {x: 0.8437706, y: 0.7780972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48881e60c6dd3cf0800000000000000
+      internalID: -270824280603195315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_5"
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 4
+        width: 202
+        height: 170
+      alignment: 9
+      pivot: {x: 0.91478103, y: 0.8107146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3abe44b97a53a2e0800000000000000
+      internalID: -2115747921171400131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_6"
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 23
+        width: 202
+        height: 152
+      alignment: 9
+      pivot: {x: 0.91478163, y: 0.78959155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7667b77aac68420800000000000000
+      internalID: 2632013852924340134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_7"
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 81
+        width: 202
+        height: 110
+      alignment: 9
+      pivot: {x: 0.91778684, y: 0.5745131}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152acdd60e83c22e0800000000000000
+      internalID: -2149280385595563439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432
+        \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_8"
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 83
+        width: 200
+        height: 137
+      alignment: 9
+      pivot: {x: 0.9219647, y: 0.457899}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07530b20c9ef3230800000000000000
+      internalID: 3620869636993799946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 78fecee59695fa841bb314646db697d3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_0": 1885475492616538442
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_1": -5012396068032618594
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_2": -3712235849124966310
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_3": -820040702383991170
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_4": -270824280603195315
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_5": -2115747921171400131
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_6": 2632013852924340134
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_7": -2149280385595563439
+      "PigeonAnim \u0441\u043A\u0440\u044B\u043B \u0448\u0430\u0440\u0444 \u0432 \u043D\u0435\u043A\u043E\u0442\u0440\u044B\u0445 \u043C\u0435\u0441\u0442\u0430\u0445_8": 3620869636993799946
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

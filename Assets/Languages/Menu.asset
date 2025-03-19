@@ -79,3 +79,31 @@ MonoBehaviour:
       phrase: Play
     key: _Play
     hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041D\u0435 \u043F\u043E\u0432\u0435\u0437\u043B\u043E"
+    - langName: Eng
+      phrase: Unlucky
+    key: _Unlucky
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u0417\u0430\u043D\u043E\u0432\u043E"
+    - langName: Eng
+      phrase: Restart
+    key: _Restart
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041C\u0435\u043D\u044E"
+    - langName: Eng
+      phrase: Menu
+    key: _Menu
+    hide: 0
+  - phrases:
+    - langName: Rus
+      phrase: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    - langName: Eng
+      phrase: Continue
+    key: _Continue
+    hide: 0

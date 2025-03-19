@@ -37,4 +37,27 @@ public class SingleAssetLoader
 
         _cashedObject = null;
     }
+
+    public async Task UnloadWithDelay()
+    {
+        if (_cashedObject == null)
+            return;
+
+        GameObject cashedObject = _cashedObject;
+
+        await Task.Delay(5000);
+
+        cashedObject.SetActive(false);
+
+        Addressables.ReleaseInstance(cashedObject);
+
+        //_cashedObject = null;
+    }
+
+    public static void UnloadIndividual(GameObject go)
+    {
+        go.SetActive(false);
+
+        Addressables.ReleaseInstance(go);
+    }
 }

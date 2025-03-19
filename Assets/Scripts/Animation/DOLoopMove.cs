@@ -40,25 +40,45 @@ public class DOLoopMove : MonoBehaviour
 
     private Tween _tween;
 
-    private void Start()
+    private Coroutine _coroutine;
+
+    private Vector3 _basePosition;
+
+    private void Awake()
     {
         if (_isStart == true)
         {
-            switch(_typeMove)
-            {
-                case Enums.TypeLoopMove.RandomMove:
-                    StartCoroutine(RandomMove());
-                    break;                
-                case Enums.TypeLoopMove.RandomMoveAnchor:
-                    StartCoroutine(RandomMoveAnchor(_rectTransform));
-                    break;                
-                case Enums.TypeLoopMove.LoopRandomRotate:
-                    StartCoroutine(LoopRandomRotate());
-                    break;                
-                case Enums.TypeLoopMove.LoopRotate:
-                    StartCoroutine(LoopRotate());
-                    break;
-            }
+            Go();
+        }
+    }
+
+    public void Stop()
+    {
+        _tween.Kill();
+
+        transform.DORotate(Vector3.zero, 2f);
+
+        if (_coroutine != null)
+            StopAllCoroutines();
+            //StopCoroutine(_coroutine);
+    }
+
+    public void Go()
+    {
+        switch (_typeMove)
+        {
+            case Enums.TypeLoopMove.RandomMove:
+                _coroutine = StartCoroutine(RandomMove());
+                break;
+            case Enums.TypeLoopMove.RandomMoveAnchor:
+                _coroutine = StartCoroutine(RandomMoveAnchor(_rectTransform));
+                break;
+            case Enums.TypeLoopMove.LoopRandomRotate:
+                _coroutine = StartCoroutine(LoopRandomRotate());
+                break;
+            case Enums.TypeLoopMove.LoopRotate:
+                _coroutine = StartCoroutine(LoopRotate());
+                break;
         }
     }
 
@@ -74,7 +94,7 @@ public class DOLoopMove : MonoBehaviour
 
         yield return _delay;
 
-        StartCoroutine(RandomMove());
+        _coroutine = StartCoroutine(RandomMove());
     }
 
     public IEnumerator RandomMoveAnchor(RectTransform rectTransform)
@@ -89,7 +109,7 @@ public class DOLoopMove : MonoBehaviour
 
         yield return _delay;
 
-        StartCoroutine(RandomMoveAnchor(rectTransform));
+        _coroutine = StartCoroutine(RandomMoveAnchor(rectTransform));
     }
 
     public IEnumerator LoopRandomRotate()
@@ -110,7 +130,7 @@ public class DOLoopMove : MonoBehaviour
 
         yield return _delay;
 
-        StartCoroutine(LoopRandomRotate());
+        _coroutine = StartCoroutine(LoopRandomRotate());
     }
 
     public IEnumerator LoopRotate()
@@ -130,7 +150,7 @@ public class DOLoopMove : MonoBehaviour
 
         yield return _delay;
 
-        StartCoroutine(LoopRandomRotate());
+        _coroutine = StartCoroutine(LoopRandomRotate());
     }
 
     private void RandomVectorAndDelay(float randomX, float randomY, float randomZ, float randomDelay)

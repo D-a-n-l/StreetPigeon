@@ -8,7 +8,7 @@ public class Bootstrap : MonoBehaviour
     private GameObject _player => _settableSkin.Current;
 
     [SerializeField]
-    private GameObject _topDeadZone;
+    private GameObject _deadZone;
 
     [SerializeField]
     private Canvas _buttonMove;
@@ -24,8 +24,8 @@ public class Bootstrap : MonoBehaviour
     private Energy _energy;
 
     private Score _score;
-
-    private bool isFly = false;
+    public StepByStepAnimation pigANim;
+    public bool IsFly { get; private set; } = false;
 
     [Inject]
     public void Construct(Health health, Energy energy, Score score, UpdateVelocityGame updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
@@ -43,9 +43,14 @@ public class Bootstrap : MonoBehaviour
         _spawner = new Spawner(spawnerConfig, transform, _score);
     }
 
-    public void SetFly()
+    public void SetFly(bool value)
     {
-        isFly = true;
+        IsFly = value;
+    }
+
+    public void SetGame(bool value)
+    {
+        GameState.Set(value);
     }
 
     private void Awake()
@@ -72,7 +77,7 @@ public class Bootstrap : MonoBehaviour
     {
         _player.transform.SetParent(null);
 
-        if (isFly == true)
+        if (IsFly == true)
             _player.GetComponent<SaverStartPosition>().Set();
 
         StartGame();
@@ -80,9 +85,28 @@ public class Bootstrap : MonoBehaviour
 
     private void ActivateGameObjects(bool value)
     {
-        _topDeadZone.SetActive(value);
+        _deadZone.SetActive(value);
 
         _buttonMove.enabled = value;
+    }
+
+    public void SpawbGolube()
+    {
+        _spawner.Stop();
+
+        _updateVelocityGame.Reset();
+
+        _updateVelocityGame.Stop();
+
+        ActivateGameObjects(false);
+
+        _player.GetComponent<MovingPlayer>().enabled = false;
+
+        _settableSkin.SetLast();
+
+        _spawner.UnloadAll();
+
+        _score.Reset();
     }
 
     private void StartGame()
@@ -97,9 +121,11 @@ public class Bootstrap : MonoBehaviour
 
         _spawner.Start();
 
-        _topDeadZone.SetActive(true);
+        _deadZone.SetActive(true);
 
         _buttonMove.enabled = true;
+
+        Debug.Log("Bootstrap " + Time.timeScale);
     }
 
     public void RestartGame()
