@@ -4,33 +4,33 @@ using Cinemachine;
 public class VirtualCameraScaler : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 ReferenceResolution = new Vector2(1920, 1080);
+    private Vector2 _referenceResolution = new Vector2(1920, 1080);
 
     [SerializeField]
-    private WorkingMode Mode = WorkingMode.ConstantWidth;
+    private WorkingMode _mode = WorkingMode.ConstantWidth;
 
     [SerializeField]
-    private float MatchWidthOrHeight = 0.5f;
+    private float _matchWidthOrHeight = 0.5f;
 
-    private CinemachineVirtualCamera componentCamera;
+    private CinemachineVirtualCamera _componentCamera;
 
-    private float targetAspect;
-    private float cameraZoom = 1;
+    private float _targetAspect;
+    private float _cameraZoom = 1;
 
-    private float initialSize;
+    private float _initialSize;
 
-    private float previousUpdateAspect;
-    private WorkingMode previousUpdateMode;
-    private float previousUpdateMatch;
+    private float _previousUpdateAspect;
+    private WorkingMode _previousUpdateMode;
+    private float _previousUpdateMatch;
 
-    public float HorizontalSize => initialSize * targetAspect;
+    public float HorizontalSize => _initialSize * _targetAspect;
 
     public float CameraZoom
     {
-        get => cameraZoom;
+        get => _cameraZoom;
         set
         {
-            cameraZoom = value;
+            _cameraZoom = value;
             UpdateCamera();
         }
     }
@@ -46,23 +46,23 @@ public class VirtualCameraScaler : MonoBehaviour
 
     private void Awake()
     {
-        componentCamera = GetComponent<CinemachineVirtualCamera>();
-        initialSize = componentCamera.m_Lens.OrthographicSize;
+        _componentCamera = GetComponent<CinemachineVirtualCamera>();
+        _initialSize = _componentCamera.m_Lens.OrthographicSize;
 
-        targetAspect = ReferenceResolution.x / ReferenceResolution.y;
+        _targetAspect = _referenceResolution.x / _referenceResolution.y;
     }
 
     private void Update()
     {
-        if (!Mathf.Approximately(previousUpdateAspect, componentCamera.m_Lens.Aspect) ||
-            previousUpdateMode != Mode ||
-            !Mathf.Approximately(previousUpdateMatch, MatchWidthOrHeight))
+        if (!Mathf.Approximately(_previousUpdateAspect, _componentCamera.m_Lens.Aspect) ||
+            _previousUpdateMode != _mode ||
+            !Mathf.Approximately(_previousUpdateMatch, _matchWidthOrHeight))
         {
             UpdateCamera();
 
-            previousUpdateAspect = componentCamera.m_Lens.Aspect;
-            previousUpdateMode = Mode;
-            previousUpdateMatch = MatchWidthOrHeight;
+            _previousUpdateAspect = _componentCamera.m_Lens.Aspect;
+            _previousUpdateMode = _mode;
+            _previousUpdateMatch = _matchWidthOrHeight;
         }
     }
 
@@ -73,50 +73,50 @@ public class VirtualCameraScaler : MonoBehaviour
 
     private void UpdateOrtho()
     {
-        switch (Mode)
+        switch (_mode)
         {
             case WorkingMode.ConstantHeight:
-                componentCamera.m_Lens.OrthographicSize = initialSize / cameraZoom;
+                _componentCamera.m_Lens.OrthographicSize = _initialSize / _cameraZoom;
                 break;
 
             case WorkingMode.ConstantWidth:
-                componentCamera.m_Lens.OrthographicSize = initialSize * (targetAspect / componentCamera.m_Lens.Aspect) / cameraZoom;
+                _componentCamera.m_Lens.OrthographicSize = _initialSize * (_targetAspect / _componentCamera.m_Lens.Aspect) / _cameraZoom;
                 break;
 
             case WorkingMode.MatchWidthOrHeight:
-                float vSize = initialSize;
-                float hSize = initialSize * (targetAspect / componentCamera.m_Lens.Aspect);
+                float vSize = _initialSize;
+                float hSize = _initialSize * (_targetAspect / _componentCamera.m_Lens.Aspect);
                 float vLog = Mathf.Log(vSize, 2);
                 float hLog = Mathf.Log(hSize, 2);
-                float logWeightedAverage = Mathf.Lerp(hLog, vLog, MatchWidthOrHeight);
-                componentCamera.m_Lens.OrthographicSize = Mathf.Pow(2, logWeightedAverage) / cameraZoom;
+                float logWeightedAverage = Mathf.Lerp(hLog, vLog, _matchWidthOrHeight);
+                _componentCamera.m_Lens.OrthographicSize = Mathf.Pow(2, logWeightedAverage) / _cameraZoom;
                 break;
 
             case WorkingMode.Expand:
-                if (targetAspect > componentCamera.m_Lens.OrthographicSize)
+                if (_targetAspect > _componentCamera.m_Lens.OrthographicSize)
                 {
-                    componentCamera.m_Lens.OrthographicSize = initialSize * (targetAspect / componentCamera.m_Lens.Aspect) / cameraZoom;
+                    _componentCamera.m_Lens.OrthographicSize = _initialSize * (_targetAspect / _componentCamera.m_Lens.Aspect) / _cameraZoom;
                 }
                 else
                 {
-                    componentCamera.m_Lens.OrthographicSize = initialSize / cameraZoom;
+                    _componentCamera.m_Lens.OrthographicSize = _initialSize / _cameraZoom;
                 }
 
                 break;
 
             case WorkingMode.Shrink:
-                if (targetAspect < componentCamera.m_Lens.Aspect)
+                if (_targetAspect < _componentCamera.m_Lens.Aspect)
                 {
-                    componentCamera.m_Lens.OrthographicSize = initialSize * (targetAspect / componentCamera.m_Lens.Aspect) / cameraZoom;
+                    _componentCamera.m_Lens.OrthographicSize = _initialSize * (_targetAspect / _componentCamera.m_Lens.Aspect) / _cameraZoom;
                 }
                 else
                 {
-                    componentCamera.m_Lens.OrthographicSize = initialSize / cameraZoom;
+                    _componentCamera.m_Lens.OrthographicSize = _initialSize / _cameraZoom;
                 }
 
                 break;
             default:
-                Debug.LogError("Incorrect CameraScaler.Mode: " + Mode);
+                Debug.LogError("Incorrect CameraScaler.Mode: " + _mode);
                 break;
         }
     }
