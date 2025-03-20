@@ -5,7 +5,7 @@ using System.Linq;
 
 public class PoolAssetLoader
 {
-    private Queue<GameObject> _cashedObjects = new Queue<GameObject>(2);
+    private Queue<GameObject> _cashedObjects = new Queue<GameObject>(3);
 
     public async void Load(AssetReference assetReference, Transform positionRoot)
     {
@@ -25,7 +25,7 @@ public class PoolAssetLoader
 
     public void UnloadFirst()
     {
-        if (_cashedObjects.Count() == 0)
+        if (_cashedObjects.Count == 0)
             return;
 
         _cashedObjects.First().SetActive(false);
@@ -42,11 +42,13 @@ public class PoolAssetLoader
 
         for(int i = 0; i < _cashedObjects.Count; i++)
         {
-            _cashedObjects.First().SetActive(false);
-            
-            Addressables.ReleaseInstance(_cashedObjects.First());
+            UnloadFirst();
 
-            _cashedObjects.Dequeue();
+            //_cashedObjects.First().SetActive(false);
+            
+            //Addressables.ReleaseInstance(_cashedObjects.First());
+
+            //_cashedObjects.Dequeue();
         }
 
         _cashedObjects.Clear();
