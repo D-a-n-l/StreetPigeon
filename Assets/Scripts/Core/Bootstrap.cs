@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using Zenject;
 
 public class Bootstrap : MonoBehaviour
@@ -8,15 +7,20 @@ public class Bootstrap : MonoBehaviour
     [field: SerializeField]
     public StepByStepAnimation ButtonStart { get; private set; }
 
+    [Space(10)]
     [SerializeField]
-    private GameObject _deadZone;
+    private Canvas _buttonsMove;
+
+    [Space(10)]
+    [SerializeField]
+    private GameObject _deadZoneTop;
 
     [SerializeField]
-    private Canvas _buttonMove;
+    private GameObject _deadZoneBottom;
 
     private Spawner _spawner;
 
-    private RefrashableTimeScaleFromScore _updateVelocityGame;
+    private RefrashableTimeScaleFromScore _refrashableTimeScale;
 
     private SettableSkin _settableSkin;
 
@@ -31,13 +35,13 @@ public class Bootstrap : MonoBehaviour
     private bool _isFly = false;
 
     [Inject]
-    public void Construct(Health health, Energy energy, Score score, RefrashableTimeScaleFromScore updateVelocityGame, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
+    public void Construct(Health health, Energy energy, Score score, RefrashableTimeScaleFromScore refrashableTimeScale, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
     {
         _settableSkin = settableSkin;
 
         _score = score;
 
-        _updateVelocityGame = updateVelocityGame;
+        _refrashableTimeScale = refrashableTimeScale;
 
         _health = health;
 
@@ -58,26 +62,33 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
-        ActivateGameObjects(false);
+        //ActivateGameObjects(false);
 
         _health.OnZeroing += _spawner.Stop;
 
-        _health.OnZeroing += _updateVelocityGame.Stop;
+        _health.OnZeroing += _refrashableTimeScale.Stop;
 
-        _health.OnZeroing += _updateVelocityGame.Reset;
+        _health.OnZeroing += _refrashableTimeScale.Reset;
 
         _health.OnZeroing += _score.Reset;
 
         _health.OnZeroing += OffPLayer;
     }
 
+    private void Start()
+    {
+        BindablePosition.Set(BindablePositionConst.DeadZoneTop, _deadZoneTop.transform);
+
+        BindablePosition.Set(BindablePositionConst.DeadZoneBottom, _deadZoneBottom.transform);
+    }
+
     private void OnDisable()
     {
         _health.OnZeroing -= _spawner.Stop;
 
-        _health.OnZeroing -= _updateVelocityGame.Stop;
+        _health.OnZeroing -= _refrashableTimeScale.Stop;
 
-        _health.OnZeroing -= _updateVelocityGame.Reset;
+        _health.OnZeroing -= _refrashableTimeScale.Reset;
 
         _health.OnZeroing -= _score.Reset;
 
@@ -94,25 +105,25 @@ public class Bootstrap : MonoBehaviour
         _player.transform.SetParent(null);
 
         if (_isFly == true)
-            BindablePosition.Set(Enums.Direction.TopLeft, new Vector3(5.75f, 0f, 0f), _player.transform);
+            BindablePosition.Set(BindablePositionConst.Pigeon, _player.transform);
 
         StartGame();
     }
 
     private void ActivateGameObjects(bool value)
     {
-        _deadZone.SetActive(value);
+        _deadZoneTop.SetActive(value);
 
-        _buttonMove.enabled = value;
+        _buttonsMove.enabled = value;
     }
 
     public void InMenu()
     {
         _spawner.Stop();
 
-        _updateVelocityGame.Reset();
+        _refrashableTimeScale.Reset();
 
-        _updateVelocityGame.Stop();
+        _refrashableTimeScale.Stop();
 
         ActivateGameObjects(false);
 
@@ -133,15 +144,15 @@ public class Bootstrap : MonoBehaviour
 
         _energy.Increase(_energy.Max);
 
-        _updateVelocityGame.Start();
+        _refrashableTimeScale.Start();
 
         _score.Start();
 
         _spawner.Start();
 
-        _deadZone.SetActive(true);
+        _deadZoneTop.SetActive(true);
 
-        _buttonMove.enabled = true;
+        _buttonsMove.enabled = true;
     }
 
     public void RestartGame()
@@ -151,7 +162,7 @@ public class Bootstrap : MonoBehaviour
 
         _spawner.UnloadAll();
 
-        BindablePosition.Set(Enums.Direction.TopLeft, new Vector3(5.75f, 0f, 0f), _player.transform);
+        BindablePosition.Set(BindablePositionConst.Pigeon, _player.transform);
 
         StartGame();
     }

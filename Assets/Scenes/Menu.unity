@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increaseEvery: 10
-  _howAdd: 0.1
+  _howAddTimeScale: 0.1
   _baseTimeScale: 1
   _maxTimeScale: 2.5
 --- !u!1 &497230030
@@ -3869,83 +3869,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &1316056087
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 293347457801868662, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_Name
-      value: Pigeon
-      objectReference: {fileID: 0}
-    - target: {fileID: 567028883420106579, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: _isStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 567028883420106579, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: _offset.x
-      value: 5.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 567028883420106579, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: _offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 567028883420106579, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: _offset.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 567028883420106579, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: _direction
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670654271748615765, guid: 7406f667b543fdc49869517d1646f445, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7406f667b543fdc49869517d1646f445, type: 3}
 --- !u!1001 &1324263625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4694,8 +4617,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ButtonStart>k__BackingField: {fileID: 1300473491}
-  _deadZone: {fileID: 5523541964231394079}
-  _buttonMove: {fileID: 4835094235187058733}
+  _buttonsMove: {fileID: 4835094235187058733}
+  _deadZoneTop: {fileID: 3610311019533701274}
+  _deadZoneBottom: {fileID: 6387237343051188339}
 --- !u!4 &1880297625
 Transform:
   m_ObjectHideFlags: 0
@@ -4796,9 +4720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1747c3c38a8097349a8d75a226457522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReferenceResolution: {x: 1920, y: 1080}
-  Mode: 2
-  MatchWidthOrHeight: 0.5
+  _referenceResolution: {x: 1920, y: 1080}
+  _mode: 1
+  _matchWidthOrHeight: 0.5
 --- !u!1001 &2040640141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5871,21 +5795,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2749285381657250043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387237343051188339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74354b3ddf752ad4787024bbd65e134d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isStart: 1
-  _direction: 3
-  _offset: {x: 0, y: -0.5, z: 0}
 --- !u!114 &2773080819409430578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6136,7 +6045,6 @@ GameObject:
   - component: {fileID: 8193374544820096790}
   - component: {fileID: 2111866986787677597}
   - component: {fileID: 670428843790542077}
-  - component: {fileID: 6338392569959714973}
   m_Layer: 0
   m_Name: DeadZoneTop
   m_TagString: Untagged
@@ -6720,8 +6628,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8215243158194651071}
   - {fileID: 8337180364757279524}
+  - {fileID: 8215243158194651071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6183559787972892216
@@ -6871,21 +6779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6338392569959714973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3610311019533701274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74354b3ddf752ad4787024bbd65e134d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isStart: 1
-  _direction: 0
-  _offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6387237343051188339
 GameObject:
   m_ObjectHideFlags: 0
@@ -6898,7 +6791,6 @@ GameObject:
   - component: {fileID: 3894758700273586563}
   - component: {fileID: 7731349296469597102}
   - component: {fileID: 6207390001986449305}
-  - component: {fileID: 2749285381657250043}
   m_Layer: 0
   m_Name: DeadZoneBottom
   m_TagString: Untagged
@@ -7960,4 +7852,3 @@ SceneRoots:
   - {fileID: 1276115686}
   - {fileID: 528474925}
   - {fileID: 1614288851}
-  - {fileID: 1316056087}

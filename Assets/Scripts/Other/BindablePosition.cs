@@ -7,22 +7,19 @@ public class BindablePosition : MonoBehaviour
 
     [Space(10)]
     [SerializeField]
-    private Enums.Direction _direction;
-
-    [SerializeField]
-    private Vector3 _offset;
+    private BindablePositionPreset _preset;
 
     private void Start()
     {
         if (_isStart == true)
-            Set(_direction, _offset, transform);
+            Set(_preset, transform);
     }
 
-    public static void Set(Enums.Direction direction, Vector3 offset, Transform go) 
+    public static void Set(BindablePositionPreset preset, Transform go) 
     {
         Vector3 worldPoint;
 
-        switch (direction)
+        switch (preset.Direction)
         {
             case Enums.Direction.Top:
                 worldPoint = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width / 2, Screen.height));
@@ -53,6 +50,21 @@ public class BindablePosition : MonoBehaviour
                 break;
         }
 
-        go.position = worldPoint + offset;
+        go.position = worldPoint + preset.Offset;
+    }
+}
+
+[System.Serializable]
+public class BindablePositionPreset
+{
+    public Enums.Direction Direction;
+
+    public Vector3 Offset;
+
+    public BindablePositionPreset(Enums.Direction direction, Vector3 offset)
+    {
+        Direction = direction;
+
+        Offset = offset;
     }
 }
