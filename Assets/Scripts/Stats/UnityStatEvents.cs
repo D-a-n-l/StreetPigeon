@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,8 +13,10 @@ public class UnityStatEvents : SelectableStat
     [SerializeField]
     private UnityEvent OnZeroing;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.1f);
+
         _stat.OnDecreased += OnDecreased.Invoke;
         _stat.OnIncreased += OnIncreased.Invoke;
         _stat.OnZeroing += OnZeroing.Invoke;
