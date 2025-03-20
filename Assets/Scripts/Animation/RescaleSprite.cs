@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class RescaleSprite : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class RescaleSprite : MonoBehaviour
         _defaultScale = transform.localScale;
 
         if (_playOnAwake == true)
-            Rescale();
+            RescalePingPong(transform, _newScale, _defaultScale, _duration, _numberLoop);
     }
 
     private void OnDestroy()
@@ -34,11 +35,16 @@ public class RescaleSprite : MonoBehaviour
         _tween.Kill();
     }
 
-    public void Rescale()
+    public void RescalePingPong(Transform go, Vector3 newScale, Vector3 baseScale, float duration, int numberLoop)
     {
         _tween = DOTween.Sequence()
-            .Append(transform.DOScale(_newScale, _duration))
-            .Append(transform.DOScale(_defaultScale, _duration))
-            .SetLoops(_numberLoop);
+            .Append(go.transform.DOScale(newScale, duration))
+            .Append(go.transform.DOScale(baseScale, duration))
+            .SetLoops(numberLoop);
+    }
+
+    public static void Rescale(Transform go, Vector3 newScale, float duration)
+    {
+        go.transform.DOScale(newScale, duration);
     }
 }

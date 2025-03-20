@@ -119,6 +119,9 @@ public class Bootstrap : MonoBehaviour
 
         _score.Start();
 
+        if (Player.transform.localScale != Vector3.one)
+            RescaleSprite.Rescale(Player.transform, Vector3.one, 2f);
+
         StartCoroutine(ActivateDeadZonesAndButtonsMove(true));
     }
 
