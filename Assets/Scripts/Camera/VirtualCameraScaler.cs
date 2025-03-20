@@ -3,11 +3,14 @@ using Cinemachine;
 
 public class VirtualCameraScaler : MonoBehaviour
 {
-    [Tooltip("Set this to the resolution you have set in Game View, or resolution you usually test you game with")]
-    public Vector2 ReferenceResolution = new Vector2(720, 1280);
+    [SerializeField]
+    private Vector2 ReferenceResolution = new Vector2(1920, 1080);
 
-    public WorkingMode Mode = WorkingMode.ConstantWidth;
-    public float MatchWidthOrHeight = 0.5f;
+    [SerializeField]
+    private WorkingMode Mode = WorkingMode.ConstantWidth;
+
+    [SerializeField]
+    private float MatchWidthOrHeight = 0.5f;
 
     private CinemachineVirtualCamera componentCamera;
 
