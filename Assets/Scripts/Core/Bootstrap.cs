@@ -86,7 +86,7 @@ public class Bootstrap : MonoBehaviour
 
     private void OffPLayer()
     {
-        _player.GetComponent<MovingPlayer>().enabled = false;
+        _player.GetComponentInChildren<Collider2D>().enabled = false;
     }
 
     public void StartG()
@@ -94,7 +94,7 @@ public class Bootstrap : MonoBehaviour
         _player.transform.SetParent(null);
 
         if (_isFly == true)
-            _player.GetComponent<SaverStartPosition>().Set();
+            BindablePosition.Set(Enums.Direction.TopLeft, new Vector3(5.75f, 0f, 0f), _player.transform);
 
         StartGame();
     }
@@ -146,11 +146,12 @@ public class Bootstrap : MonoBehaviour
 
     public void RestartGame()
     {
+        _player.GetComponentInChildren<Collider2D>().enabled = true;
         ActivateGameObjects(false);
 
         _spawner.UnloadAll();
 
-        _player.GetComponent<SaverStartPosition>().Set();
+        BindablePosition.Set(Enums.Direction.TopLeft, new Vector3(5.75f, 0f, 0f), _player.transform);
 
         StartGame();
     }

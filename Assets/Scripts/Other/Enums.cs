@@ -21,8 +21,12 @@ public static class Enums
     public enum Direction
     {
         Top,
-        Right,
+        TopRight,
+        TopLeft,
         Bottom,
+        BottomRight,
+        BottomLet,
+        Right,
         Left
     }
 
