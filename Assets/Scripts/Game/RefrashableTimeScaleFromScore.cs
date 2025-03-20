@@ -5,25 +5,25 @@ public class RefrashableTimeScaleFromScore
 {
     private int _increaseEvery = 150;
 
-    private float _howAddVelocity = 0.1f;
+    private float _howAddTimeScale = 0.1f;
     
     private float _baseTimeScale = 1;
 
     private float _maxTimeScale = 2f;
 
-    private int _currentIncrease;
+    private int _currentIncreaseEvery;
 
     private Score _score;
 
-    private WaitUntil _waitUntil;
+    private WaitUntil _wait;
 
     private Coroutine _currentCoroutine;
 
-    public RefrashableTimeScaleFromScore(int increaseEvery, float howAddVelocity, float baseTimeScale, float maxTimeScale, Score score)
+    public RefrashableTimeScaleFromScore(int increaseEvery, float howAddTimeScale, float baseTimeScale, float maxTimeScale, Score score)
     {
         _increaseEvery = increaseEvery;
 
-        _howAddVelocity = howAddVelocity;
+        _howAddTimeScale = howAddTimeScale;
 
         _baseTimeScale = baseTimeScale;
 
@@ -31,7 +31,7 @@ public class RefrashableTimeScaleFromScore
 
         _score = score;
 
-        _waitUntil = new WaitUntil(() => _score.CurrentScore >= _currentIncrease);
+        _wait = new WaitUntil(() => _score.CurrentScore >= _currentIncreaseEvery);
     }
 
     public void Start()
@@ -46,18 +46,18 @@ public class RefrashableTimeScaleFromScore
 
     public void Reset()
     {
-        _currentIncrease = _increaseEvery;
+        _currentIncreaseEvery = _increaseEvery;
 
         Time.timeScale = _baseTimeScale;
     }
 
     private IEnumerator StartCo()
     {
-        yield return _waitUntil;
+        yield return _wait;
 
-        _currentIncrease += _increaseEvery;
+        _currentIncreaseEvery += _increaseEvery;
 
-        Time.timeScale += _howAddVelocity;
+        Time.timeScale += _howAddTimeScale;
 
         if (Time.timeScale < _maxTimeScale)
             Start();

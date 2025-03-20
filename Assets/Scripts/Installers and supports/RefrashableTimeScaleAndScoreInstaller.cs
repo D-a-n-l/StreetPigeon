@@ -9,7 +9,7 @@ public class RefrashableTimeScaleAndScoreInstaller : MonoInstaller
 
     [Range(0f, 0.5f)]
     [SerializeField]
-    private float _howAdd;
+    private float _howAddTimeScale;
 
     [Min(0.5f)]
     [SerializeField]
@@ -25,8 +25,8 @@ public class RefrashableTimeScaleAndScoreInstaller : MonoInstaller
 
         Container.Bind<Score>().FromInstance(score).AsSingle();
 
-        RefrashableTimeScaleFromScore updateVelocityGame = new RefrashableTimeScaleFromScore(_increaseEvery, _howAdd, _baseTimeScale, _maxTimeScale, score);
+        RefrashableTimeScaleFromScore refrashableTimeScale = new RefrashableTimeScaleFromScore(_increaseEvery, _howAddTimeScale, _baseTimeScale, _maxTimeScale, score);
 
-        Container.Bind<RefrashableTimeScaleFromScore>().FromInstance(updateVelocityGame);
+        Container.Bind<RefrashableTimeScaleFromScore>().FromInstance(refrashableTimeScale);
     }
 }
