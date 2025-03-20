@@ -8,7 +8,7 @@ public class PausePanel : MonoBehaviour
     {
         _currentTimeScale = Time.timeScale;
 
-        if (GameState.State == true)
+        if (GameState.IsGame == true)
             Time.timeScale = 0;
     }
 

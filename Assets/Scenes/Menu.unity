@@ -1029,7 +1029,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1880297624}
         m_TargetAssemblyTypeName: Bootstrap, Assembly-CSharp
-        m_MethodName: SetFly
+        m_MethodName: SetIsFly
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3274,7 +3274,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1880297624}
         m_TargetAssemblyTypeName: Bootstrap, Assembly-CSharp
-        m_MethodName: SetGame
+        m_MethodName: SetIsGame
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3286,7 +3286,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1880297624}
         m_TargetAssemblyTypeName: Bootstrap, Assembly-CSharp
-        m_MethodName: StartG
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

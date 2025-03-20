@@ -18,52 +18,47 @@ public class Bootstrap : MonoBehaviour
     [SerializeField]
     private GameObject _deadZoneBottom;
 
-    private Spawner _spawner;
-
-    private RefrashableTimeScaleFromScore _refrashableTimeScale;
-
-    private SettableSkin _settableSkin;
-
     private Health _health;
 
     private Energy _energy;
 
+    private Spawner _spawner;
+
+    private RefrashableTimeScaleFromScore _refrashableTimeScale;
+
     private Score _score;
 
-    private GameObject _player => _settableSkin.Current;
+    private SettableSkin _settableSkin;
+
+    private GameObject Player => _settableSkin.Current;
+
+    private Collider2D _playerCollider;
+
+    private WaitForSeconds _waitSeconds;
 
     private bool _isFly = false;
 
     [Inject]
-    public void Construct(Health health, Energy energy, Score score, RefrashableTimeScaleFromScore refrashableTimeScale, SettableSkin settableSkin, SpawnerConfig spawnerConfig)
+    public void Construct(Health health, Energy energy, Score score, SpawnerConfig spawnerConfig, 
+        RefrashableTimeScaleFromScore refrashableTimeScale, SettableSkin settableSkin)
     {
-        _settableSkin = settableSkin;
-
-        _score = score;
-
-        _refrashableTimeScale = refrashableTimeScale;
-
         _health = health;
 
         _energy = energy;
 
+        _score = score;
+
         _spawner = new Spawner(spawnerConfig, transform, _score);
-    }
 
-    public void SetFly(bool value)
-    {
-        _isFly = value;
-    }
+        _refrashableTimeScale = refrashableTimeScale;
 
-    public void SetGame(bool value)
-    {
-        GameState.Set(value);
+        _settableSkin = settableSkin;
+
+        _waitSeconds = new WaitForSeconds(1f);
     }
 
     private void Awake()
     {
-        //ActivateGameObjects(false);
-
         _health.OnZeroing += _spawner.Stop;
 
         _health.OnZeroing += _refrashableTimeScale.Stop;
@@ -72,14 +67,9 @@ public class Bootstrap : MonoBehaviour
 
         _health.OnZeroing += _score.Reset;
 
-        _health.OnZeroing += OffPLayer;
-    }
+        _health.OnZeroing += () => PlayerCollider(false);
 
-    private void Start()
-    {
-        BindablePosition.Set(BindablePositionConst.DeadZoneTop, _deadZoneTop.transform);
-
-        BindablePosition.Set(BindablePositionConst.DeadZoneBottom, _deadZoneBottom.transform);
+        _health.OnZeroing += () => StartCoroutine(ActivateDeadZonesAndButtonsMove(false));
     }
 
     private void OnDisable()
@@ -92,78 +82,91 @@ public class Bootstrap : MonoBehaviour
 
         _health.OnZeroing -= _score.Reset;
 
-        _health.OnZeroing -= OffPLayer;
+        _health.OnZeroing -= () => PlayerCollider(false);
+
+        _health.OnZeroing -= () => StartCoroutine(ActivateDeadZonesAndButtonsMove(false));
     }
 
-    private void OffPLayer()
+    private void Start()
     {
-        _player.GetComponentInChildren<Collider2D>().enabled = false;
+        BindablePosition.Set(BindablePositionConst.DeadZoneTop, _deadZoneTop.transform);
+
+        BindablePosition.Set(BindablePositionConst.DeadZoneBottom, _deadZoneBottom.transform);
+
+        StartCoroutine(ActivateDeadZonesAndButtonsMove(false));
     }
 
-    public void StartG()
+    public void SetIsFly(bool value) => _isFly = value;
+
+    public void SetIsGame(bool value) => GameState.Set(value);
+
+    public void StartGame()
     {
-        _player.transform.SetParent(null);
+        Player.transform.SetParent(null);
 
         if (_isFly == true)
-            BindablePosition.Set(BindablePositionConst.Pigeon, _player.transform);
+            BindablePosition.Set(BindablePositionConst.Pigeon, Player.transform);
 
-        StartGame();
+        Player.GetComponent<MovingPlayer>().enabled = true;
+
+        _health.Increase(_health.Max);
+
+        _energy.Increase(_energy.Max);
+
+        _spawner.Start();
+
+        _refrashableTimeScale.Start();
+
+        _score.Start();
+
+        StartCoroutine(ActivateDeadZonesAndButtonsMove(true));
     }
 
-    private void ActivateGameObjects(bool value)
+    public void RestartGame()
     {
-        _deadZoneTop.SetActive(value);
+        _spawner.UnloadAll();
 
-        _buttonsMove.enabled = value;
+        PlayerCollider(true);
+
+        BindablePosition.Set(BindablePositionConst.Pigeon, Player.transform);
+
+        StartGame();
     }
 
     public void InMenu()
     {
         _spawner.Stop();
 
-        _refrashableTimeScale.Reset();
+        _spawner.UnloadAll();
 
         _refrashableTimeScale.Stop();
 
-        ActivateGameObjects(false);
+        _refrashableTimeScale.Reset();
 
-        _player.GetComponent<MovingPlayer>().enabled = false;
+        _score.Reset();
 
         _settableSkin.SetLast();
 
-        _spawner.UnloadAll();
-
-        _score.Reset();
+        StartCoroutine(ActivateDeadZonesAndButtonsMove(false));
     }
 
-    private void StartGame()
+    private void PlayerCollider(bool enabled)
     {
-        _player.GetComponent<MovingPlayer>().enabled = true;
+        if (_playerCollider == null)
+            _playerCollider = Player.GetComponentInChildren<Collider2D>();
 
-        _health.Increase(_health.Max);
-
-        _energy.Increase(_energy.Max);
-
-        _refrashableTimeScale.Start();
-
-        _score.Start();
-
-        _spawner.Start();
-
-        _deadZoneTop.SetActive(true);
-
-        _buttonsMove.enabled = true;
+        _playerCollider.enabled = enabled;
     }
 
-    public void RestartGame()
+    private IEnumerator ActivateDeadZonesAndButtonsMove(bool value)
     {
-        _player.GetComponentInChildren<Collider2D>().enabled = true;
-        ActivateGameObjects(false);
+        if (value == true)
+            yield return _waitSeconds;
 
-        _spawner.UnloadAll();
+        _buttonsMove.enabled = value;
 
-        BindablePosition.Set(BindablePositionConst.Pigeon, _player.transform);
+        _deadZoneTop.SetActive(value);
 
-        StartGame();
+        _deadZoneBottom.SetActive(value);
     }
 }

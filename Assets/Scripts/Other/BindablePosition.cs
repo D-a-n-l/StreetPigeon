@@ -50,6 +50,8 @@ public class BindablePosition : MonoBehaviour
                 break;
         }
 
+        worldPoint = new Vector3(worldPoint.x, worldPoint.y, 0);
+
         go.position = worldPoint + preset.Offset;
     }
 }

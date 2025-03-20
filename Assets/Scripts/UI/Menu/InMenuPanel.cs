@@ -12,7 +12,7 @@ public class InMenuPanel : MonoBehaviour
 
     public void OnClosed()
     {
-        if (GameState.State == true && _isPressed == true)
+        if (GameState.IsGame == true && _isPressed == true)
         {
             _bootstrap.ButtonStart.StartStepWithEvent(true);
 
