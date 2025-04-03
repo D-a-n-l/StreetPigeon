@@ -10,11 +10,11 @@ public class RestartPanel : MonoBehaviour
 
     public void SetPressed(bool value) => _isPressed = value;
 
-    public void OnClosed()
+    public async void OnClosed()
     {
         if (_isPressed == true)
         {
-            _bootstrap.RestartGame();
+            await _bootstrap.RestartGame();
         }
     }
 }

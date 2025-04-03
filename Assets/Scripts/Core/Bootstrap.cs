@@ -126,7 +126,7 @@ public class Bootstrap : MonoBehaviour
         StartCoroutine(ActivateDeadZonesAndButtonsMove(true));
     }
 
-    public async void RestartGame()
+    public async Task RestartGame()
     {
         await _spawner.UnloadAll();
 

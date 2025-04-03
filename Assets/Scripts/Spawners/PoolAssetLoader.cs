@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class PoolAssetLoader
 {
-    private Queue<GameObject> _cashedObjects = new Queue<GameObject>(2);
+    private Queue<GameObject> _cashedObjects = new Queue<GameObject>();
 
     public async void Load(AssetReference assetReference, Transform positionRoot)
     {
@@ -68,20 +68,22 @@ public class PoolAssetLoader
         if (_cashedObjects.Count == 0)
             return;
 
-        for (int i = 0; i <= _cashedObjects.Count; i++)
+        int index = _cashedObjects.Count;
+
+        for (int i = 0; i < index; i++)
         {
             Debug.Log(_cashedObjects.Count);
 
-            _cashedObjects.First().GetComponent<MoveY>().Move();
+            _cashedObjects.Peek().GetComponent<MoveY>().Move();
 
-            await Task.Delay(_cashedObjects.First().GetComponent<MoveY>().durationTask);
+            await Task.Delay(_cashedObjects.Peek().GetComponent<MoveY>().durationTask);
 
-            Addressables.ReleaseInstance(_cashedObjects.First());
+            Addressables.ReleaseInstance(_cashedObjects.Peek());
 
             _cashedObjects.Dequeue();
         }
 
-        //await Task.Delay(1000);
+        await Task.Delay(1000);
 
         _cashedObjects.Clear();
     }

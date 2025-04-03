@@ -57,9 +57,9 @@ public class Spawner
 
         int randomPrefab = UnityEngine.Random.Range(0, _currentDifficulty.Length);
 
-        yield return _waitSpawn;
-
         _loader.LoadWithInject(_currentDifficulty[randomPrefab], _transform);
+
+        yield return _waitSpawn;
 
         Start();
 
