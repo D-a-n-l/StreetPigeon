@@ -13,17 +13,30 @@ MonoBehaviour:
   m_Name: Difficulty
   m_EditorClassIdentifier: 
   <Difficulty>k__BackingField:
-  - SpawnScore: 0
+  - Score: 0
     Prefabs:
     - m_AssetGUID: 01cdc6b046863a9418005f0870f78123
       m_SubObjectName: 
+      m_SubObjectGUID: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     - m_AssetGUID: 847839f8ddc38e14e902a0c7673c2983
       m_SubObjectName: 
+      m_SubObjectGUID: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     - m_AssetGUID: f0f82c9eaa2fd68488630d9af7bd5287
       m_SubObjectName: 
+      m_SubObjectGUID: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 4ffef26f3fba0f24ea576c512e3b5fb3
+      m_SubObjectName: 
+      m_SubObjectGUID: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d963edb353e850d43876a7cbb0220850
+      m_SubObjectName: 
+      m_SubObjectGUID: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0

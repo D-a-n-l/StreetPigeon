@@ -344,7 +344,7 @@ MonoBehaviour:
   _isStart: 1
   _typeMove: 3
   _rectTransform: {fileID: 0}
-  _duration: 7.5
+  _duration: 3
   _ease: 1
   _newRandomPositionX:
     Min: 11.6
@@ -356,8 +356,8 @@ MonoBehaviour:
     Min: -4
     Max: 4
   _delayBetweenMove:
-    Min: 2
-    Max: 4
+    Min: 3
+    Max: 3
 --- !u!1001 &166664034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   _isStart: 1
   _typeMove: 3
   _rectTransform: {fileID: 0}
-  _duration: 7.5
+  _duration: 3
   _ease: 1
   _newRandomPositionX:
     Min: 11.6
@@ -2707,8 +2707,8 @@ MonoBehaviour:
     Min: -4
     Max: 4
   _delayBetweenMove:
-    Min: 2
-    Max: 4
+    Min: 3
+    Max: 3
 --- !u!224 &877723635 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1259407876934525672, guid: 2e49190ea51bd9b47ac7a68c9b7681b1, type: 3}
@@ -5051,7 +5051,7 @@ MonoBehaviour:
   _isStart: 1
   _typeMove: 3
   _rectTransform: {fileID: 0}
-  _duration: 8
+  _duration: 4
   _ease: 1
   _newRandomPositionX:
     Min: 11.6
@@ -5060,11 +5060,11 @@ MonoBehaviour:
     Min: 0
     Max: 0
   _newRandomRotation:
-    Min: -6
+    Min: -4
     Max: 6
   _delayBetweenMove:
-    Min: 1
-    Max: 1
+    Min: 4
+    Max: 4
 --- !u!114 &141908219136029941
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -74,8 +75,8 @@ public class Spawner
         Coroutines.Stop(_pastCoroutine);
     }
 
-    public void UnloadAll()
+    public async Task UnloadAll()
     {
-        _loader.UnloadAll();
+        await _loader.UnloadAllWithEffects();
     }
 }

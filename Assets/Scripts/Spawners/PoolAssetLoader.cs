@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class PoolAssetLoader
 {
-    private Queue<GameObject> _cashedObjects = new Queue<GameObject>(3);
+    private Queue<GameObject> _cashedObjects = new Queue<GameObject>(2);
 
     public async void Load(AssetReference assetReference, Transform positionRoot)
     {
@@ -40,16 +41,47 @@ public class PoolAssetLoader
         if (_cashedObjects.Count == 0)
             return;
 
-        for(int i = 0; i < _cashedObjects.Count; i++)
+        //Debug.Log(_cashedObjects.Count);
+
+        //foreach (GameObject item in _cashedObjects)
+        //{
+        //    Debug.Log(item.name);
+        //}
+
+        for(int i = 0; i <= _cashedObjects.Count; i++)
         {
             UnloadFirst();
-
             //_cashedObjects.First().SetActive(false);
             
             //Addressables.ReleaseInstance(_cashedObjects.First());
 
             //_cashedObjects.Dequeue();
         }
+
+        _cashedObjects.Clear();
+    }
+
+    public async Task UnloadAllWithEffects()
+    {
+        Debug.Log(_cashedObjects.Count);
+
+        if (_cashedObjects.Count == 0)
+            return;
+
+        for (int i = 0; i <= _cashedObjects.Count; i++)
+        {
+            Debug.Log(_cashedObjects.Count);
+
+            _cashedObjects.First().GetComponent<MoveY>().Move();
+
+            await Task.Delay(_cashedObjects.First().GetComponent<MoveY>().durationTask);
+
+            Addressables.ReleaseInstance(_cashedObjects.First());
+
+            _cashedObjects.Dequeue();
+        }
+
+        //await Task.Delay(1000);
 
         _cashedObjects.Clear();
     }

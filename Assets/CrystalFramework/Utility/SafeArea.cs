@@ -117,6 +117,11 @@ namespace Crystal
             Refresh ();
         }
 
+        private void Update()
+        {
+            Refresh();
+        }
+
         void Refresh ()
         {
             Rect safeArea = GetSafeArea ();

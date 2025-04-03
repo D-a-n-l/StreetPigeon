@@ -14,9 +14,9 @@ public class InMenuPanel : MonoBehaviour
     {
         if (GameState.IsGame == true && _isPressed == true)
         {
-            _bootstrap.ButtonStart.StartStepWithEvent(true);
-
             _bootstrap.InMenu();
+
+            _bootstrap.ButtonStart.StartStepWithEvent(true);
 
             GameState.Set(false);
         }

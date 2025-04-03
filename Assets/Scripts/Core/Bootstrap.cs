@@ -125,9 +125,9 @@ public class Bootstrap : MonoBehaviour
         StartCoroutine(ActivateDeadZonesAndButtonsMove(true));
     }
 
-    public void RestartGame()
+    public async void RestartGame()
     {
-        _spawner.UnloadAll();
+        await _spawner.UnloadAll();
 
         PlayerCollider(true);
 
@@ -136,11 +136,11 @@ public class Bootstrap : MonoBehaviour
         StartGame();
     }
 
-    public void InMenu()
+    public async void InMenu()
     {
         _spawner.Stop();
 
-        _spawner.UnloadAll();
+        await _spawner.UnloadAll();
 
         _refrashableTimeScale.Stop();
 
