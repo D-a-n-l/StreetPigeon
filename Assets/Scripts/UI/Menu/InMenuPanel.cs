@@ -10,11 +10,11 @@ public class InMenuPanel : MonoBehaviour
 
     public void SetPressed(bool value) => _isPressed = value;
 
-    public void OnClosed()
+    public async void OnClosed()
     {
         if (GameState.IsGame == true && _isPressed == true)
         {
-            _bootstrap.InMenu();
+            await _bootstrap.InMenu();
 
             _bootstrap.ButtonStart.StartStepWithEvent(true);
 

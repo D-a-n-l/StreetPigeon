@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -136,9 +137,11 @@ public class Bootstrap : MonoBehaviour
         StartGame();
     }
 
-    public async void InMenu()
+    public async Task InMenu()
     {
         _spawner.Stop();
+
+        PlayerCollider(false);
 
         await _spawner.UnloadAll();
 
