@@ -29,7 +29,7 @@ public class Spawner
 
         _transform = transform;
 
-        _transform.SetPositionAndRotation(_config.Offset, Quaternion.identity);
+        _transform.SetPositionAndRotation(BindablePosition.Get() + _config.Offset, Quaternion.identity);
 
         _score = score;
 
@@ -40,7 +40,7 @@ public class Spawner
 
     public void Start()
     {
-        _pastCoroutine = _currentCoroutine;
+        //_pastCoroutine = _currentCoroutine;
 
         _currentCoroutine = Coroutines.Start(Spawn());
     }
@@ -63,16 +63,16 @@ public class Spawner
 
         Start();
 
-        yield return _waitDestroy;
+        //yield return _waitDestroy;
 
-        _loader.UnloadFirst();
+        //_loader.UnloadFirst();
     }
 
     public void Stop()
     {
         Coroutines.Stop(_currentCoroutine);
 
-        Coroutines.Stop(_pastCoroutine);
+        //Coroutines.Stop(_pastCoroutine);
     }
 
     public async Task UnloadAll()

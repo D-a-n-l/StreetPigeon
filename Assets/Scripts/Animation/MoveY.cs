@@ -1,5 +1,6 @@
 using DG.Tweening;
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,10 +19,18 @@ public class MoveY : MonoBehaviour
     public UnityEvent OnCompleteMove;
     private Tween tween;
 
+    public Action OnInvisible;
+
     [Button]
     public void Move()
     {
         tween = transform.DOMoveX(y, duration).SetEase(ease).SetUpdate(UpdateType.Normal, true);
+    }
+
+    private void OnBecameInvisible()
+    {
+        print("invis");
+        OnInvisible?.Invoke();
     }
 
     [Button]

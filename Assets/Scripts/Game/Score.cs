@@ -20,7 +20,7 @@ public class Score
 
     public void Start()
     {
-        HighScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
+        //HighScore = MasterPlayerPrefs.GetInt(MasterPlayerPrefs.HIGH_SCORE, 0);
 
         OnUpdatedHighScore?.Invoke();
 

@@ -90,6 +90,9 @@ public class Bootstrap : MonoBehaviour
 
     private void Start()
     {
+        print(BindablePosition.Get());
+
+
         BindablePosition.Set(BindablePositionConst.DeadZoneTop, _deadZoneTop.transform);
 
         BindablePosition.Set(BindablePositionConst.DeadZoneBottom, _deadZoneBottom.transform);

@@ -49,6 +49,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,6 +136,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -212,6 +218,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2399615324789425078, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0d2e82a041fbfad4980fdb43ec816edc, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0d2e82a041fbfad4980fdb43ec816edc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -309,6 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d29bd64ea157244e9409cf7c705df43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadingAsset: 0
+  _audioSource: {fileID: 0}
   _randomPitch: {x: 0.8, y: 1.2}
 --- !u!1 &8011274162962137875
 GameObject:
@@ -321,7 +330,6 @@ GameObject:
   - component: {fileID: 8011274162962137873}
   - component: {fileID: 8425967596269967016}
   - component: {fileID: 693850534579787481}
-  - component: {fileID: 2150958301859689389}
   - component: {fileID: 7842159197770785897}
   m_Layer: 0
   m_Name: Light
@@ -356,6 +364,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011274162962137875}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -379,7 +388,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.028736949, y: 3.837482}
   m_Size: {x: 1.5488335, y: 3.523775}
   m_Direction: 0
@@ -437,19 +447,6 @@ MonoBehaviour:
   OnEnergyIncrease:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2150958301859689389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8011274162962137875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5.3
 --- !u!114 &7842159197770785897
 MonoBehaviour:
   m_ObjectHideFlags: 0

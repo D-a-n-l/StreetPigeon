@@ -50,21 +50,23 @@ public class VirtualCameraScaler : MonoBehaviour
         _initialSize = _componentCamera.m_Lens.OrthographicSize;
 
         _targetAspect = _referenceResolution.x / _referenceResolution.y;
+
+        UpdateCamera();
     }
 
-    private void Update()
-    {
-        if (!Mathf.Approximately(_previousUpdateAspect, _componentCamera.m_Lens.Aspect) ||
-            _previousUpdateMode != _mode ||
-            !Mathf.Approximately(_previousUpdateMatch, _matchWidthOrHeight))
-        {
-            UpdateCamera();
+    //private void Update()
+    //{
+    //    if (!Mathf.Approximately(_previousUpdateAspect, _componentCamera.m_Lens.Aspect) ||
+    //        _previousUpdateMode != _mode ||
+    //        !Mathf.Approximately(_previousUpdateMatch, _matchWidthOrHeight))
+    //    {
+    //        UpdateCamera();
 
-            _previousUpdateAspect = _componentCamera.m_Lens.Aspect;
-            _previousUpdateMode = _mode;
-            _previousUpdateMatch = _matchWidthOrHeight;
-        }
-    }
+    //        _previousUpdateAspect = _componentCamera.m_Lens.Aspect;
+    //        _previousUpdateMode = _mode;
+    //        _previousUpdateMatch = _matchWidthOrHeight;
+    //    }
+    //}
 
     private void UpdateCamera()
     {

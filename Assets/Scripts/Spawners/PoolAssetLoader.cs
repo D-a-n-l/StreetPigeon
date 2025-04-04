@@ -19,9 +19,17 @@ public class PoolAssetLoader
     {
         var handle = Addressables.InstantiateAsync(assetReference, positionRoot);
 
-        DiContainerSingleton.Instance.Container.InjectGameObject(await handle.Task);
+        GameObject g = await handle.Task;
 
-        _cashedObjects.Enqueue(await handle.Task);
+        DiContainerSingleton.Instance.Container.InjectGameObject(g);
+
+        _cashedObjects.Enqueue(g);
+
+        MoveY v = g.GetComponent<MoveY>();
+        Debug.Log(v.gameObject.name);
+        v.OnInvisible += UnloadFirst;
+
+        //dff.Add(v);
     }
 
     public void UnloadFirst()
@@ -29,9 +37,9 @@ public class PoolAssetLoader
         if (_cashedObjects.Count == 0)
             return;
 
-        _cashedObjects.First().SetActive(false);
+        _cashedObjects.Peek().SetActive(false);
 
-        Addressables.ReleaseInstance(_cashedObjects.First());
+        Addressables.ReleaseInstance(_cashedObjects.Peek());
 
         _cashedObjects.Dequeue();
     }
@@ -63,7 +71,12 @@ public class PoolAssetLoader
 
     public async Task UnloadAllWithEffects()
     {
-        Debug.Log(_cashedObjects.Count);
+        //foreach (var item in dff)
+        //{
+        //    item.OnInvisible -= UnloadFirst;
+        //}
+
+        //Debug.Log(_cashedObjects.Count);
 
         if (_cashedObjects.Count == 0)
             return;
@@ -72,9 +85,11 @@ public class PoolAssetLoader
 
         for (int i = 0; i < index; i++)
         {
-            Debug.Log(_cashedObjects.Count);
+            //Debug.Log(_cashedObjects.Count);
 
             _cashedObjects.Peek().GetComponent<MoveY>().Move();
+
+            _cashedObjects.Peek().GetComponent<MoveY>().OnInvisible -= UnloadFirst;
 
             await Task.Delay(_cashedObjects.Peek().GetComponent<MoveY>().durationTask);
 
@@ -83,7 +98,7 @@ public class PoolAssetLoader
             _cashedObjects.Dequeue();
         }
 
-        await Task.Delay(1000);
+        //await Task.Delay(1000);
 
         _cashedObjects.Clear();
     }

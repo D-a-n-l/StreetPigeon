@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Spawner Config
   m_EditorClassIdentifier: 
   <Difficulty>k__BackingField: {fileID: 11400000, guid: d9ed4db395dc57a4fbbd3caeb76542af, type: 2}
-  <TimeSpawn>k__BackingField: 3.2
+  <TimeSpawn>k__BackingField: 4.5
   <TimeDestroyObject>k__BackingField: 10
-  <Offset>k__BackingField: {x: 25, y: 0}
+  <Offset>k__BackingField: {x: 15, y: 0}

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class BindablePosition : MonoBehaviour
@@ -50,9 +51,21 @@ public class BindablePosition : MonoBehaviour
                 break;
         }
 
+
         worldPoint = new Vector3(worldPoint.x, worldPoint.y, 0);
 
         go.position = worldPoint + preset.Offset;
+    }
+
+    public static Vector2 Get()
+    {
+        Vector2 position;
+
+        position = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height / 2));
+
+        position = new Vector2(position.x, position.y);
+
+        return position;
     }
 }
 

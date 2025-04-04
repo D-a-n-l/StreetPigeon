@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 857053504701196073}
   - component: {fileID: 5853691674373879432}
   - component: {fileID: 5558302394188035398}
-  - component: {fileID: 1778039935454228575}
   m_Layer: 0
   m_Name: Tree 1
   m_TagString: Untagged
@@ -54,6 +53,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,6 +99,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019427930241148050}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -120,7 +123,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.025500838, y: -0.101894714}
   m_Size: {x: 2.3917563, y: 6.4273157}
   m_Direction: 0
@@ -190,19 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2bef717293ba74cac8474bbeeee886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1778039935454228575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019427930241148050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73d065bfac90374ebea341a866ed55f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5.3
 --- !u!1 &5968258246000397013
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +238,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2399615324789425078, guid: ca1b5b63c32b04a4ea5744da68ac186b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 97d7f021c5569b248ba2a276f089b706, type: 3}
+  m_Resource: {fileID: 8300000, guid: 97d7f021c5569b248ba2a276f089b706, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -344,4 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d29bd64ea157244e9409cf7c705df43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadingAsset: 0
+  _audioSource: {fileID: 0}
   _randomPitch: {x: 0.8, y: 1.2}

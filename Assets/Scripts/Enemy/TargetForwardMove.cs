@@ -19,14 +19,14 @@ public class TargetForwardMove : MonoBehaviour
     [SerializeField]
     private Vector3 _offset;
 
-    private MovingPlayer _movingPlayer;
+    private SettableSkin _movingPlayer;
 
     private WaitForSeconds _waitForSeconds;
 
     private Tween _tween;
 
     [Inject]
-    public void Construct(MovingPlayer movingPlayer)
+    public void Construct(SettableSkin movingPlayer)
     {
         _movingPlayer = movingPlayer;
     }
@@ -43,7 +43,7 @@ public class TargetForwardMove : MonoBehaviour
 
     public void TargetForward()
     {
-        Vector3 targetPosition = _movingPlayer.transform.position + _offset;
+        Vector3 targetPosition = _movingPlayer.Current.transform.position + _offset;
 
         _tween = transform.DOMove(targetPosition, _duration);
     }
@@ -52,7 +52,7 @@ public class TargetForwardMove : MonoBehaviour
     {
         yield return _waitForSeconds;
 
-        Vector3 targetPosition = _movingPlayer.transform.position + _offset;
+        Vector3 targetPosition = _movingPlayer.Current.transform.position + _offset;
 
         _tween = transform.DOMove(targetPosition, _duration);
     }
