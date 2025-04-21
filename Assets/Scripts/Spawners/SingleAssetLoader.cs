@@ -15,6 +15,11 @@ public class SingleAssetLoader
         return _cashedObject;
     }
 
+    public static T LoadWithInject<T>(T original, Transform positionRoot) where T : Object
+    {
+        return DiContainerSingleton.Instance.Container.InstantiatePrefabForComponent<T>(original, positionRoot);
+    }
+
     public async Task<GameObject> LoadWithInject(AssetReference assetReference, Transform positionRoot)
     {
         var handle = Addressables.InstantiateAsync(assetReference, positionRoot);

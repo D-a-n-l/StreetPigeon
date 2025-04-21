@@ -16,8 +16,10 @@ MonoBehaviour:
     _serializedList:
     - Key: Simple
       Value:
+        Name: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439"
         Position: {x: 85, y: 8.699982, z: 0}
         Scale: {x: 90, y: 90, z: 90}
+        PresetAnimation: {fileID: 11400000, guid: ad1f87cb948c2a6469af4adeb25bcf65, type: 2}
         Prefab:
           m_AssetGUID: 7406f667b543fdc49869517d1646f445
           m_SubObjectName: 
@@ -26,8 +28,10 @@ MonoBehaviour:
           m_EditorAssetChanged: 0
     - Key: SimpleTest
       Value:
+        Name: "\u041E\u0441\u0435\u043D\u043D\u0438\u0439"
         Position: {x: 85, y: 8.699982, z: 0}
         Scale: {x: 90, y: 90, z: 90}
+        PresetAnimation: {fileID: 11400000, guid: 19c0ec36cf6527c48853aa1a8e47d1e9, type: 2}
         Prefab:
           m_AssetGUID: 32cac714652f7224f9d5338d3a1dd9f4
           m_SubObjectName: 

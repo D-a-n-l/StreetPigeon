@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   y: -25
-  duration: 1
-  durationTask: 1000
+  duration: 0.75
+  durationTask: 750
   ease: 28
   OnCompleteMove:
     m_PersistentCalls:

@@ -38,7 +38,7 @@ public class BlinkSprite : MonoBehaviour
         _tween.Kill();
     }
 
-    public void Blink()//поместить в ивент игрока
+    public void Blink()
     {
         _tween = DOTween.Sequence()
             .Append(_spriteRenderer.DOColor(_colorBlink, _duration))

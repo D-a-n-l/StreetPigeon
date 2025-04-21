@@ -33,6 +33,9 @@ public class SettableSkin : MonoBehaviour
 
     public async void Set(string name)
     {
+        if (_lastNameSkin == name)
+            return;
+
         if (Current != null)
         {
             _loader.Unload();

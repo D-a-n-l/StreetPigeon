@@ -91,7 +91,7 @@ public class PoolAssetLoader
 
             _cashedObjects.Peek().GetComponent<MoveY>().OnInvisible -= UnloadFirst;
 
-            await Task.Delay(_cashedObjects.Peek().GetComponent<MoveY>().durationTask);
+            await Task.Delay(_cashedObjects.Peek().GetComponent<MoveY>().DurationForTask);
 
             Addressables.ReleaseInstance(_cashedObjects.Peek());
 

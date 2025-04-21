@@ -12,9 +12,13 @@ public class Skins : ScriptableObject
 [System.Serializable]
 public struct SkinPreset
 {
+    public string Name;
+
     public Vector3 Position;
 
     public Vector3 Scale;
+
+    public PresetAnimation PresetAnimation;
 
     public AssetReference Prefab;
 }

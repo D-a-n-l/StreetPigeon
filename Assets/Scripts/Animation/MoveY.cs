@@ -6,37 +6,30 @@ using UnityEngine.Events;
 
 public class MoveY : MonoBehaviour
 {
-    public float y;
+    [SerializeField]
+    private float _x;
 
-    public float duration;
+    [SerializeField]
+    private float _duration;
 
-    public int durationTask;
+    [field: SerializeField]
+    public int DurationForTask { get; private set; }
 
+    [SerializeField]
+    private Ease _ease;
 
-    public Ease ease;
-
-
-    public UnityEvent OnCompleteMove;
     private Tween tween;
 
-    public Action OnInvisible;
+    public event Action OnInvisible;
 
-    [Button]
     public void Move()
     {
-        tween = transform.DOMoveX(y, duration).SetEase(ease).SetUpdate(UpdateType.Normal, true);
+        tween = transform.DOMoveX(_x, _duration).SetEase(_ease).SetUpdate(UpdateType.Normal, true);
     }
 
     private void OnBecameInvisible()
     {
-        print("invis");
         OnInvisible?.Invoke();
-    }
-
-    [Button]
-    public void Res()
-    {
-        transform.position = Vector3.zero;
     }
 
     private void OnDisable()
